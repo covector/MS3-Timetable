@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="current.js"></script>
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>MS3 Timetable</title>
+</head>
+<body id = "Whole">
+    <div class = "AskInfo" id = "Ask">
+        <div class = "class" id = "Class">
+        <h3>Class</h3>
+            <button onclick = "selClass('Class', 'MS3V')">MS3V</button>
+            <button onclick = "selClass('Class', 'MS3I')">MS3I</button>
+        </div>
+        <div class = "math" id = "Math">
+        <h3>Math</h3>
+            <button onclick = "selClass('Math', 'CMHS')">CMHS</button>
+            <button onclick = "selClass('Math', 'KKH')">KKH</button>
+            <button onclick = "selClass('Math', 'KYT')">KYT</button>
+        </div>
+        <div class = "a" id = "A">
+            <h3>Block A</h3>
+            <button onclick = "selClass('A', 'Bio')">Bio</button>
+            <button onclick = "selClass('A', 'Chem')">Chem</button>
+            <button onclick = "selClass('A', 'Econ')">Econ</button>
+            <button onclick = "selClass('A', 'Geo')">Geo</button>
+            <button onclick = "selClass('A', 'Psy')">Psy</button>
+        </div>
+        <div class = "b" id = "B">
+            <h3>Block B</h3>
+            <button onclick = "selClass('B', 'Bio')">Bio</button>
+            <button onclick = "selClass('B', 'Chem')">Chem</button>
+            <button onclick = "selClass('B', 'Econ')">Econ</button>
+            <button onclick = "selClass('B', 'Geo')">Geo</button>
+            <button onclick = "selClass('B', 'Phy')">Phy</button>
+            <button onclick = "selClass('B', 'Psy')">Psy</button>
+        </div>
+        <div class = "c" id = "C">
+            <h3>Block C</h3>
+            <button onclick = "selClass('C', 'Bio')">Bio</button>
+            <button onclick = "selClass('C', 'Chem')">Chem</button>
+            <button onclick = "selClass('C', 'CS')">CS</button>
+            <button onclick = "selClass('C', 'Hist')">Hist</button>
+            <button onclick = "selClass('C', 'Phy')">Phy</button>
+            <button onclick = "selClass('C', 'VA')">VA</button>
+        </div>
+    </div>
+    <div class = "TopBar">
+        <strong>MS3</strong> Online Zoom Lesson Timetable
+    </div>
+    <div class = "TopBack">
+        <div class = "Info">
+            <strong>Your Information:</strong><br /><br />
+            Class &mdash; <span id = "UrClass"></span><br /><br />
+            Math Teacher &mdash; <span id = "UrMath"></span><br /><br />
+            Block A &mdash; <span id = "UrA"></span><br /><br />
+            Block B &mdash; <span id = "UrB"></span><br /><br />
+            Block C &mdash; <span id = "UrC"></span>
+        </div>
+        <div class = "Backdrop"></div>
+    </div>
+    <div class = "Generate">
+        <div class = "Center">
+            <div class = "Output">
+                <h2 id = "Lesson">Lesson now:</h2>
+                <input id = "ID" readonly></input>
+                <h4><span id = "LinkWord">Link: </span><a href = "" target = "_blank" id = "Link"></a></h4>
+            </div>
+            <div class = "Button">
+                <button onclick = "Refresh()" class = "refresh">Refresh</button><br />
+                <button onclick = "Copy()" class = "copy">Copy ID</button>
+            </div>
+        </div>
+    </div>
+    <div class = "TT">
+        <a href = "images/MS3V.png" target="_blank"><img src = "images/MS3V.png" alt = "MS3V Timetable" class = "MS3V"/></a>
+        <a href = "images/MS3I.png" target="_blank"><img src = "images/MS3I.png" alt = "MS3I Timetable" class = "MS3I"/></a>
+    </div>
+    <div class = "reset" onclick = "ClearCookie()"><button>Clear your class and electives info</button></div>
+    <div class = "footer">This site uses cookie to store your information</div>
+</body>
+</html>

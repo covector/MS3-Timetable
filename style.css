@@ -1,0 +1,349 @@
+body{
+    margin: 0 0 0 0;
+    background-color: rgb(221, 221, 221);
+    font-family: Roboto, sans-serif;
+}
+div.AskInfo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    text-align: center;
+}
+div.AskInfo div{
+    position: fixed;
+    padding-top: 30vh;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgb(240, 240, 240);
+}
+div.c{
+    z-index: 4;
+    animation-name: InfoCardL;
+    animation-duration: 1s;
+    animation-play-state: paused;
+}
+div.b{
+    z-index: 5;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.a{
+    z-index: 6;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.math{
+    z-index: 7;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.class{
+    z-index: 8;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+@keyframes InfoCard{
+    from { opacity: 1; top: 0vh; }
+    to { opacity: 0; top: 20vh; }
+}
+@keyframes InfoCardL{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+div.AskInfo h3{
+    font-size: 70px;
+    font-family: Roboto, sans-serif;
+}
+div.AskInfo button{
+    margin-left: 0;
+    margin-right: 0;
+    border-style: solid;
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
+}
+div.AskInfo button:hover{
+    cursor: pointer;
+    background-color: rgb(225, 225, 225);
+}
+div.AskInfo button:focus{
+    background-color: rgb(210, 210, 210);
+}
+div.TopBack{
+    padding-top: 70px;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+}
+div.Backdrop{
+    background-image: url(images/TT_blurred.png);
+    height: 100%;
+    background-size: 110%;
+    background-position: center;
+    z-index: -1;
+}
+div.Info{
+    overflow: hidden;
+    position: absolute;
+    font-size: 25px;
+    margin-left: 60%;
+    margin-top: 50px;
+    width: 35%;
+    height: 400px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(119, 119, 119);
+    padding-top: 10px;
+    padding-left: 20px;
+}
+div.Info strong{
+    font-size: 30px;
+    font-family: Oxygen, Roboto, sans-serif;
+}
+div.TopBar{
+    background-color: rgb(30, 30, 30);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 0 10px black;
+}
+div.Generate{
+    padding: 40px 20px 40px 20px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px black;
+    position: relative;
+}
+div.Center{
+    display: inline-flex;
+}
+div.Center div{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+div.Output input{
+    height: 40px;
+    width: 250px;
+    font-size: 40px;
+    text-align: center;
+    font-family: inherit;
+    border-style: solid;
+    border-color: black;
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+#Link{
+    color: rgb(62, 168, 255)
+}
+div.Button button{
+    font-family: inherit;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 250px;
+    height: 70px;
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 0 10px black;
+    border-style: none;
+}
+div.Button button.refresh{
+    background-image: linear-gradient(rgb(141, 235, 156), rgb(84, 148, 95));
+    border-radius: 5px;
+}
+div.Button button.copy{
+    background-image: linear-gradient(rgb(141, 213, 235), rgb(84, 148, 148));
+    border-radius: 5px;
+}
+div.Button button.refresh:hover{
+    background-image: linear-gradient(rgb(170, 247, 183), rgb(105, 187, 119));
+    cursor: pointer;
+}
+div.Button button.copy:hover{
+    background-image: linear-gradient(rgb(162, 233, 255), rgb(98, 157, 172));
+    cursor: pointer;
+}
+div.Button button:focus{
+    outline: 0;
+}
+div.Button button.refresh:active{
+    background-image: linear-gradient(rgb(126, 212, 141), rgb(61, 109, 69));
+}
+div.Button button.copy:active{
+    background-image: linear-gradient(rgb(120, 183, 202), rgb(61, 109, 109));
+}
+div.TT{
+    text-align: center;
+}
+div.TT img{
+    width: 800px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+    border-width: 5px;
+}
+div.reset{
+    text-align: center;
+    margin-bottom: 20px;
+}
+div.reset button{
+    width: 320px;
+    height: 70px;
+    font-size: 18px;
+    color: white;
+    background-image: linear-gradient(rgb(150, 14, 14), rgb(214, 38, 38));
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(112, 0, 0);
+    font-family: inherit;
+    font-weight: 900;
+}
+div.reset button:hover{
+    cursor: pointer;
+    background-image: linear-gradient(rgb(190, 18, 18), rgb(231, 71, 71));
+}
+div.reset button:active{
+    background-image: linear-gradient(rgb(155, 15, 15), rgb(187, 59, 59));
+}
+div.reset button:focus{
+    outline: 0;
+}
+div.footer{
+    background-color: rgb(30, 30, 30);
+    color: white;
+    padding-top: 3px;
+    padding-bottom: 1px;
+}
+@media screen and (max-width: 900px){
+    div.TT img{
+        width: 600px;
+    }
+}
+@media screen and (max-width: 800px){
+
+    div.Info{
+        height: 400px;
+        font-size: 20px;
+    }
+    div.Info strong{
+        font-size: 25px;
+    }
+    div.TopBack{
+        height: 500px;
+    }
+}
+@media screen and (max-width: 700px){
+    div.TopBar{
+        font-size: 20px;
+    }
+    div.Backdrop{
+        background-size: 250%;
+    }
+    div.Info{
+        height: 300px;
+        font-size: 15px;
+    }
+    div.Info strong{
+        font-size: 20px;
+    }
+    div.TopBack{
+        height: 400px;
+    }
+    div.TT img{
+        width: 400px;
+    }
+    div.Button button{
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+    }
+    div.Output{
+        font-size: 13px;
+    }
+    div.Output input{
+        font-size: 30px;
+        width: 200px;
+    }
+    div.reset button{
+        width: 250px;
+        height: 55px;
+        font-size: 14px;
+    }
+    div.footer{
+        font-size: 13px;
+    }
+    div.Center div{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+@media screen and (max-width: 600px){
+    div.Button button{
+        width: 150px;
+        height: 55px;
+        font-size: 18px;
+    }
+    div.Output{
+        font-size: 11px;
+    }
+    div.Output input{
+        font-size: 25px;
+        width: 160px;
+    }
+    div.Center div{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 500px){
+    div.Backdrop{
+        background-size: 250%;
+    }
+    div.Info{
+        font-size: 13px;
+        height: 250px;
+    }
+    div.Info strong{
+        font-size: 15px;
+    }
+    div.TopBack{
+        height: 350px;
+    }
+    div.TT img{
+        width: 320px;
+    }
+    div.Button button{
+        width: 120px;
+        height: 50px;
+        font-size: 16px;
+    }
+    div.Output{
+        font-size: 9px;
+    }
+    div.Output input{
+        font-size: 20px;
+        width: 130px;
+    }
+    div.Center div{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
