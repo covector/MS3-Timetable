@@ -85,10 +85,11 @@ div.TopBack{
     position: relative;
 }
 div.Backdrop{
-    background-image: url(images/TT_blurred.png);
+    background-image: url("images/TT_blurred.png");
     height: 100%;
     background-size: 110%;
     background-position: center;
+    background-color: blue;
     z-index: 10;
 }
 div.Info{
