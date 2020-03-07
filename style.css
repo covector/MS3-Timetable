@@ -74,8 +74,8 @@ div.AskInfo button{
     padding: 10px 20px 10px 20px;
 }
 div.AskInfo button:hover{
-    cursor: pointer;
     background-color: rgb(225, 225, 225);
+    cursor: pointer;
 }
 div.AskInfo button:focus{
     background-color: rgb(210, 210, 210);
@@ -219,8 +219,8 @@ div.reset button{
     font-weight: 900;
 }
 div.reset button:hover{
-    cursor: pointer;
     background-image: linear-gradient(rgb(190, 18, 18), rgb(231, 71, 71));
+    cursor: pointer;
 }
 div.reset button:active{
     background-image: linear-gradient(rgb(155, 15, 15), rgb(187, 59, 59));
@@ -250,6 +250,7 @@ div.footer{
     div.TopBack{
         height: 500px;
     }
+    
 }
 @media screen and (max-width: 700px){
     div.AskInfo Button{
