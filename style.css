@@ -1,6 +1,6 @@
 body{
     margin: 0 0 0 0;
-    background-color: rgb(2, 221, 221);
+    background-color: rgb(221, 221, 221);
     font-family: Roboto, sans-serif;
 }
 div.AskInfo{
@@ -85,12 +85,11 @@ div.TopBack{
     position: relative;
 }
 div.Backdrop{
-    background-image: url("images/TT_Blurred.png");
+    background-image: url(images/TT_Blurred.png);
     height: 100%;
     background-size: 110%;
     background-position: center;
-    background-color: blue;
-    z-index: 10;
+    z-index: -1;
 }
 div.Info{
     overflow: hidden;
