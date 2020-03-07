@@ -63,6 +63,8 @@ div.class{
 div.AskInfo h3{
     font-size: 70px;
     font-family: Roboto, sans-serif;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 div.AskInfo button{
     margin-left: 0;
@@ -85,7 +87,7 @@ div.TopBack{
     position: relative;
 }
 div.Backdrop{
-    background-image: url(images/TT_blurred.png);
+    background-image: url(images/TT_Blurred.png);
     height: 100%;
     background-size: 110%;
     background-position: center;
@@ -238,7 +240,6 @@ div.footer{
     }
 }
 @media screen and (max-width: 800px){
-
     div.Info{
         height: 400px;
         font-size: 20px;
@@ -251,6 +252,9 @@ div.footer{
     }
 }
 @media screen and (max-width: 700px){
+    div.AskInfo Button{
+        font-size: 25px;
+    }
     div.TopBar{
         font-size: 20px;
     }
@@ -296,6 +300,15 @@ div.footer{
     }
 }
 @media screen and (max-width: 600px){
+    div.AskInfo h3{
+        font-size: 60px;
+        margin-bottom: 4vh;
+    }
+    div.AskInfo Button{
+        font-size: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     div.Button button{
         width: 150px;
         height: 55px;
@@ -314,6 +327,14 @@ div.footer{
     }
 }
 @media screen and (max-width: 500px){
+    div.AskInfo h3{
+        font-size: 50px;
+    }
+    div.AskInfo Button{
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     div.Backdrop{
         background-size: 250%;
     }
