@@ -49,7 +49,7 @@ selClass = function(key, val){
 
 Refresh = function(){
     let now = new Date();
-    let weekday = 1;
+    let weekday = now.getDay() - 1;
     if (weekday == -1 | weekday == 5) { Display(); }
     else {
         let hr = now.getHours();
@@ -60,7 +60,6 @@ Refresh = function(){
             let currLessonNo = Mapping(hr, min);
             if (currLessonNo >= 0) {
                 let currLesson = todayLesson[currLessonNo];
-                
                 let currTeacher = Teacher(currLesson);
                 let currID = ID[currTeacher];
                 Display(currLesson, currTeacher, currID);
