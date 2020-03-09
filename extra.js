@@ -78,7 +78,6 @@ addLesson = function(){
 }
 
 displayExtra = function(cookie){
-    alert(cookie);
     let subject = cookie.substring(19);
     let time = cookie.substring(0, 13);
     let before = document.getElementsByClassName("EmptyExtra")[0];
