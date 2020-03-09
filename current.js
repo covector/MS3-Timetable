@@ -78,7 +78,7 @@ selClass = function(key, val){
 Refresh = function(){
     let now = new Date();
     let weekday = now.getDay() - 1;
-    if (weekday == -1 | weekday == 5) { Display(); }
+    if (weekday == -1 | weekday == 5) { Display(-1); }
     else {
         let hr = now.getHours();
         let min = now.getMinutes();
@@ -92,7 +92,7 @@ Refresh = function(){
                 let currID = ID[currTeacher];
                 Display(currLesson, currTeacher, currID);
             }
-            else { Display(); }
+            else { Display(currLessonNo); }
         }
     }
 
@@ -133,8 +133,14 @@ Display = function(lesson = null, teacher = null, id = null){
     lessonLink = document.getElementById("Link");
     lessonLinkWord = document.getElementById("LinkWord");
     if (id == null){
-        lessonText.textContent = "No Lesson now";
-        lessonText.style.color = "rgb(100, 100, 100)";
+        if (lesson == -1){
+            lessonText.textContent = "No Lesson";
+            lessonText.style.color = "rgb(100, 100, 100)";
+        }
+        else{
+            lessonText.textContent = "Lunch Time";
+            lessonText.style.color = "rgb(100, 200, 100)";
+        }
         lessonLink.textContent = "";
         lessonLinkWord.textContent = "";
     }
@@ -161,6 +167,7 @@ Mapping = function(hr, min){
     if (x < 9.75){ return 1; }
     if (x < 10.5){ return 2; }
     if (x < 12){ return 3; }
+    if (x < 12.5) { return -2; }
     if (x < 13.5){ return 4; }
     if (x < 14.5){ return 5; }
     if (x < 15.25){ return 6; }
