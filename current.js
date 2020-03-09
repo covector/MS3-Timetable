@@ -1,3 +1,4 @@
+var notify = [];
 var selection = [];
 selection["Class"] = 0;
 selection["Math"] = 0;
@@ -21,6 +22,83 @@ window.onload = function() {
         }
         UpdateInfo();
         Refresh();
+    }
+    else{
+        if (this.Notification.permission == "granted") { setUpNotify(); }
+    }
+    if (Notification.permission != "granted"){
+        Notification.requestPermission().then((permission) => {
+                setUpNotify();
+            }
+        );
+    }
+}
+
+ProminLesson = function(hr, min, day, sec){
+    let x = hr * 3600 + min * 60 + sec;
+    let tt = TimeTable[studentInfo["Class"]][day]
+    return [35400 - x, 35700 - x, tt[2] , 39000 - x, 39300 - x, tt[3], 46200 - x, 46500 - x, tt[4], 49800 - x, 50100 - x, tt[5]];
+}
+
+ExtraNotif = function(hr, min, day, sec){
+    let x = hr * 3600 + min * 60 + sec;
+    let list = [];
+    for(let i = 0; i < ExtraLessons.length; i++){
+        let lesson = ExtraLessons[i];
+        let start = lesson[1] * 3600 + lesson[2] * 60;
+        if (day == lesson[5]){
+            list.push(start - x - 600);
+            list.push(start - x - 300);
+            let lessonName = lesson[0];
+            switch (lessonName){
+                case studentInfo["A"]:
+                    lessonName = "A";
+                    break;
+                case studentInfo["B"]:
+                    lessonName = "B";
+                    break;
+                case studentInfo["C"]:
+                    lessonName = "C";
+                    break;
+            }
+            list.push(lessonName);
+        }
+    }
+    return list;
+}
+
+setUpNotify = function(){
+    for (let i = 0; i < notify.length; i++){
+        clearTimeout(notify[i]);
+    }
+    notify = [];
+
+    let now = new Date();
+    let sec = now.getSeconds();
+    let min = now.getMinutes();
+    let hr = now.getHours();
+    let weekday = now.getDay() - 1;
+    if (weekday != -1 & weekday != 5){
+        let notList1 = ProminLesson(hr, min, weekday, sec);
+        let notList2 = ExtraNotif(hr, min, weekday, sec);
+        for (let i = 0; i < notList1.length / 3; i++){
+            Notify(notList1[3*i], notList1[3*i + 2]);
+            Notify(notList1[3*i + 1], notList1[3*i + 2], "very");
+        }
+        for (let i = 0; i < notList2.length / 3; i++){
+            Notify(notList2[3*i], notList2[3*i + 2]);
+            Notify(notList2[3*i + 1], notList2[3*i + 2], "very");
+        }
+    }
+}
+
+Notify = function(time, subject, adj = ""){
+    let lessonSub = subject;
+    if (subject == "A" | subject == "B" | subject == "C"){
+        lessonSub = studentInfo[subject];
+    }
+    if (time > 0){
+        notify.push(setTimeout(function(){ new Notification("You are having "+lessonSub+" lesson "+adj+" soon.\nID: "+ID[Teacher(subject)]); }, time * 1000));
     }
 }
 
@@ -101,7 +179,7 @@ Refresh = function(){
             else { Display(currLessonNo); }
         }
     }
-
+    if (this.Notification.permission == "granted") { setUpNotify(); }
 }
 
 ExtraLesson = function(dy, hr, min){
@@ -149,6 +227,7 @@ Display = function(lesson = null, teacher = null, id = null){
         }
         lessonLink.textContent = "";
         lessonLinkWord.textContent = "";
+        lessonID.value = "";
     }
     else{
         lessonText.textContent = "Lesson now: "+displayLesson(lesson, teacher);

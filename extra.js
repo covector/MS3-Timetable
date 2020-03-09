@@ -28,6 +28,7 @@ deleteLesson = function(id){
             break;
         }
     }
+    if (this.Notification.permission == "granted") { setUpNotify(); }
 }
 addLesson = function(){
     let subject = document.getElementById("Subject");
@@ -75,6 +76,7 @@ addLesson = function(){
 
         box.style.height = (400 + 60 * extraLessonCount()).toString()+"px";
     }
+    if (this.Notification.permission == "granted") { setUpNotify(); }
 }
 
 displayExtra = function(cookie){
