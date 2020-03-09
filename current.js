@@ -22,9 +22,6 @@ window.onload = function() {
         UpdateInfo();
         Refresh();
     }
-    document.getElementById("AChoice").textContent = studentInfo["A"];
-    document.getElementById("BChoice").textContent = studentInfo["B"];
-    document.getElementById("CChoice").textContent = studentInfo["C"];
 }
 
 infoEnough = function(cookie){
@@ -55,6 +52,9 @@ UpdateInfo = function(){
     document.getElementsByClassName("MS3V")[0].style.display = "none";
     document.getElementsByClassName("MS3I")[0].style.display = "none";
     document.getElementsByClassName(studentInfo["Class"])[0].style.display = "inline";
+    document.getElementById("AChoice").textContent = studentInfo["A"];
+    document.getElementById("BChoice").textContent = studentInfo["B"];
+    document.getElementById("CChoice").textContent = studentInfo["C"];
 }
 
 selClass = function(key, val){
@@ -266,12 +266,19 @@ Copy = function(){
 ClearCookie = function(){
     let decision = confirm("Are you sure you want to clear?");
     if (decision){
-        document.cookie = "Class=Delete; expires=11 Sep 2001 13:46:00 UTC";
-        document.cookie = "Math=Delete; expires=11 Sep 2001 13:46:00 UTC";
-        document.cookie = "A=Delete; expires=11 Sep 2001 13:46:00 UTC";
-        document.cookie = "B=Delete; expires=11 Sep 2001 13:46:00 UTC";
-        document.cookie = "C=Delete; expires=11 Sep 2001 13:46:00 UTC";
-        Extratime = [0, 0, 0, 0];
+        let cookie = document.cookie.split("; ");
+        for(let i = 0; i < cookie.length; i++){
+            let id = cookie[i].split("=")[0];
+            document.cookie = id+"=Delete; expires=11 Sep 2001 13:46:00 UTC";
+            if (id != "Class" & id != "Math" & id != "A" & id != "B" & id != "C"){
+                deleteLesson(id);
+            }
+        }
+        document.getElementsByClassName("Extra")[0].style.height = "400px";
+        document.getElementById("Subject").textContent = "";
+        document.getElementById("Time").textContent = "00:00 - 00:00";
+        document.getElementById("Day").textContent = "(Mon)";
+        Extratime = [0, 0, 0, 0, 0];
 
         selection = [];
         selection["Class"] = 0;
