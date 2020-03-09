@@ -382,7 +382,7 @@ div.reset button:focus{
     outline: 0;
 }
 div.footer{
-    background-color: rgb(30, 30, 30);
+    background-color: black;
     color: white;
     padding-top: 3px;
     padding-bottom: 1px;
@@ -542,7 +542,7 @@ div.footer{
     }
     div.EmptyExtra div.Time span.MinusDay{
         margin-left: 14px;
-        margin-right: 18px;
+        margin-right: 20px;
     }
     div.EmptyExtra div.Time span.MinusEndHour{
         margin-left: 12px;

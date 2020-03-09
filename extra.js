@@ -128,6 +128,9 @@ changeLesson = function(subject, electives = false){
 }
 changeTime = function(end, min, delta){
     let time = document.getElementById("Time");
+    if (min == 1) { delta *= 30; }
+    if (Extratime[2 * end + 1] + delta < 0) { Extratime[2 * end] = modTime(Extratime[2 * end] - 1, 0); }
+    if (Extratime[2 * end + 1] + delta >= 60) { Extratime[2 * end] = modTime(Extratime[2 * end] + 1, 0); }
     Extratime[2 * end + min] = modTime(Extratime[2 * end + min] + delta, min);
     time.textContent = fillZ(Extratime[0])+":"+fillZ(Extratime[1])+" - "+fillZ(Extratime[2])+":"+fillZ(Extratime[3]);
 }
