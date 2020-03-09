@@ -327,6 +327,8 @@ div.EmptyExtra div.Time{
     position: absolute;
 }
 div.EmptyExtra div.Time div span{
+    width: 16px;
+    display: inline-block;
     margin-left: 2px;
     margin-right: 2px;
     user-select: none;
@@ -552,5 +554,8 @@ div.footer{
     }
     div.EmptyExtra div.dropDown div{
         left: 36px;
+    }
+    div.EmptyExtra div.Time div span{
+        width: 12px;
     }
 }
