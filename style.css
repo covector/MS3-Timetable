@@ -558,4 +558,10 @@ div.footer{
     div.EmptyExtra div.Time div span{
         width: 12px;
     }
+    div.Extra .Tue{
+        margin-left: 9px;
+    }
+    div.Extra .Fri{
+        margin-left: 11px;
+    }
 }
