@@ -6,16 +6,44 @@ selection["B"] = 0;
 selection["C"] = 0;
 var studentInfo = [];
 window.onload = function() {
-    var studentCookie = document.cookie.split("; ");
-    if (studentCookie.length == 5){
+    let studentCookie = document.cookie.split("; ");
+    for (let i = 0; i < studentCookie.length; i++){
+        let key = studentCookie[i].split("=")[0];
+        if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C"){
+            displayExtra(studentCookie[i]);
+        }
+    }
+    if (infoEnough(studentCookie)){
         document.getElementById("Ask").style.display = "none";
-        for (let i = 0; i < 5; i++){
+        for (let i = 0; i < studentCookie.length; i++){
             let electives = studentCookie[i].split("=")
             studentInfo[electives[0]] = electives[1];
         }
         UpdateInfo();
         Refresh();
     }
+    document.getElementById("AChoice").textContent = studentInfo["A"];
+    document.getElementById("BChoice").textContent = studentInfo["B"];
+    document.getElementById("CChoice").textContent = studentInfo["C"];
+}
+
+infoEnough = function(cookie){
+    let logicArray = []
+    logicArray["Class"] = false;
+    logicArray["Math"] = false;
+    logicArray["A"] = false;
+    logicArray["B"] = false;
+    logicArray["C"] = false;
+    for (let i = 0; i < cookie.length; i++){
+        let index = cookie[i].split("=")[0];
+        if (logicArray[index] != null){
+            logicArray[index] = true;
+        }
+    }
+    if (logicArray["Class"] & logicArray["Math"] & logicArray["A"] & logicArray["B"] & logicArray["C"]){
+        return true;
+    }
+    return false;
 }
 
 UpdateInfo = function(){
@@ -72,9 +100,29 @@ Refresh = function(){
 
 ExtraLesson = function(dy, hr, min){
     let x = hr + min / 60;
-    if (dy == 2 & x >= 19.5 & x < 21 & studentInfo[B] == "Phy"){
-        Display("Phy Extra", "LCH", ID[LCH]);
-        return true;
+    for(let i = 0; i < ExtraLessons.length; i++){
+        let lesson = ExtraLessons[i];
+        let start = lesson[1] + lesson[2] / 60;
+        let end = lesson[3] + lesson[4] / 60;
+        if (dy == lesson[5] & x >= (start - 0.5) & x < (start + end)/2){
+            let Eteacher;
+            switch(lesson[0]){
+                case studentInfo["A"]: 
+                    Eteacher = Teacher("A");
+                    break;
+                case studentInfo["B"]: 
+                    Eteacher = Teacher("B");
+                    break;
+                case studentInfo["C"]: 
+                    Eteacher = Teacher("C");
+                    break;
+                default:
+                    Eteacher = Teacher(lesson[0]);
+                    break;
+            }
+            Display(lesson[0], Eteacher, ID[Eteacher]);
+            return true;
+        }
     }
     return false;
 }
@@ -223,25 +271,26 @@ ClearCookie = function(){
         document.cookie = "A=Delete; expires=11 Sep 2001 13:46:00 UTC";
         document.cookie = "B=Delete; expires=11 Sep 2001 13:46:00 UTC";
         document.cookie = "C=Delete; expires=11 Sep 2001 13:46:00 UTC";
+        Extratime = [0, 0, 0, 0];
 
-    selection = [];
-    selection["Class"] = 0;
-    selection["Math"] = 0;
-    selection["A"] = 0;
-    selection["B"] = 0;
-    selection["C"] = 0;
-    studentInfo = [];
-    document.getElementById("Ask").style.display = "block";
-    document.getElementById("Class").style.display = "block";
-    document.getElementById("Class").style.animationPlayState = "paused";
-    document.getElementById("Math").style.display = "block";
-    document.getElementById("Math").style.animationPlayState = "paused";
-    document.getElementById("A").style.display = "block";
-    document.getElementById("A").style.animationPlayState = "paused";
-    document.getElementById("B").style.display = "block";
-    document.getElementById("B").style.animationPlayState = "paused";
-    document.getElementById("C").style.display = "block";
-    document.getElementById("C").style.animationPlayState = "paused";
+        selection = [];
+        selection["Class"] = 0;
+        selection["Math"] = 0;
+        selection["A"] = 0;
+        selection["B"] = 0;
+        selection["C"] = 0;
+        studentInfo = [];
+        document.getElementById("Ask").style.display = "block";
+        document.getElementById("Class").style.display = "block";
+        document.getElementById("Class").style.animationPlayState = "paused";
+        document.getElementById("Math").style.display = "block";
+        document.getElementById("Math").style.animationPlayState = "paused";
+        document.getElementById("A").style.display = "block";
+        document.getElementById("A").style.animationPlayState = "paused";
+        document.getElementById("B").style.display = "block";
+        document.getElementById("B").style.animationPlayState = "paused";
+        document.getElementById("C").style.display = "block";
+        document.getElementById("C").style.animationPlayState = "paused";
     }
 }
 
@@ -270,7 +319,7 @@ var ID = [];
     ID["WCK"] = 9544379197;
     ID["WCF"] = 2558829501; 
     ID["YKN"] = 2163878514;
-    ID["YTF "] = 2816872757;
+    ID["YTF"] = 2816872757;
 
 var V_1 = ["A", "Eng", "B", "Math", "A", "Eng", "A", "Eng"];
 var V_2 = ["B", "TOK", "A", "Eng", "B", "TOK", "Chi", "Math"];

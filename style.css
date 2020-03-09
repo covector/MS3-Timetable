@@ -203,6 +203,158 @@ div.TT img{
     border-color: rgb(230, 230, 230);
     border-width: 5px;
 }
+div.Extra{
+    width: 100%;
+    display: inline-block;
+    height: 400px;
+    margin-top: 50px;
+    box-shadow: 0 0 5px black;
+    background-color: rgb(30, 30, 30);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+div.Extra h1{
+    text-align: left;
+    margin-left: 20px;
+}
+div.Extra button{
+    border-style: none;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    border-radius: 50%;
+    font-size: 25px;
+    outline: 0;
+}
+div.Extra button:hover{
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+}
+div.Extra .Mon{
+    margin-left: 3px;
+}
+div.Extra .Tue{
+    margin-left: 10px;
+}
+div.Extra .Wed{
+    margin-left: 3px;
+}
+div.Extra .Thu{
+    margin-left: 8px;
+}
+div.Extra .Fri{
+    margin-left: 14px;
+    margin-right: 6px;
+}
+div.HeaderExtra{
+    height: 60px;
+    background-color: rgb(60, 60, 60);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+}
+div.HeaderExtra span.SubjectT{
+    position: absolute;
+    left: 5vw;
+}
+div.HeaderExtra span.TimeT{
+    position: absolute;
+}
+div.AddedExtra{
+    height: 60px;
+    background-color: rgb(30, 30, 30);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+div.AddedExtra span.Subject{
+    position: absolute;
+    left: 5vw;
+}
+div.AddedExtra span.Time{
+    position: relative;
+}
+div.AddedExtra button{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5vw;
+}
+div.EmptyExtra{
+    height: 60px;
+    background-color: rgb(45, 45, 45);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+div.EmptyExtra div.Subject{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 5vw;
+    background-color: rgb(66, 66, 66);
+    border-style: solid;
+    border-color: rgb(39, 39, 39);
+    padding-top: 4px;
+}
+div.EmptyExtra div.dropDown div{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(66, 66, 66);
+    padding-top: 4px;
+    position: relative;
+    left: 61px;
+}
+div.EmptyExtra div.dropDown div:hover{
+    cursor: pointer;
+    background-color: rgb(78, 78, 78);
+}
+div.EmptyExtra div.Subject:hover{
+    cursor: pointer;
+    background-color: rgb(78, 78, 78);
+}
+div.EmptyExtra div.dropDown{
+    position: relative;
+    right: 45vw;
+    bottom: 156px;
+    display: none;
+}
+div.EmptyExtra div{
+    color: white;
+}
+div.EmptyExtra div.Time{
+    position: absolute;
+}
+div.EmptyExtra div.Time div span{
+    margin-left: 2px;
+    margin-right: 2px;
+    user-select: none;
+}
+div.EmptyExtra div.Time div span:hover{
+    cursor: pointer;
+    opacity: 50%;
+}
+div.EmptyExtra div.Time span.AddEndHour{
+    margin-left: 14px;
+}
+div.EmptyExtra div.Time span.AddDay{
+    margin-left: 18px;
+    margin-right: 16px;
+}
+div.EmptyExtra div.Time span.MinusDay{
+    margin-left: 18px;
+    margin-right: 16px;
+}
+div.EmptyExtra div.Time span.MinusEndHour{
+    margin-left: 14px;
+}
+div.EmptyExtra button{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5vw;
+}
 div.reset{
     text-align: center;
     margin-bottom: 20px;
@@ -368,5 +520,37 @@ div.footer{
     div.Center div{
         padding-left: 16px;
         padding-right: 16px;
+    }
+    div.Extra{
+        font-size: 16px;
+    }
+    div.EmptyExtra div.Subject{
+        width: 50px;
+    }
+    div.EmptyExtra div.Time div.upArrows{
+        margin-left: 6px;
+    }
+    div.EmptyExtra div.Time div.downArrows{
+        margin-left: 6px;
+    }
+    div.EmptyExtra div.Time span.AddEndHour{
+        margin-left: 12px;
+    }
+    div.EmptyExtra div.Time span.AddDay{
+        margin-left: 14px;
+        margin-right: 20px;
+    }
+    div.EmptyExtra div.Time span.MinusDay{
+        margin-left: 14px;
+        margin-right: 18px;
+    }
+    div.EmptyExtra div.Time span.MinusEndHour{
+        margin-left: 12px;
+    }
+    div.EmptyExtra div.dropDown div{
+        width: 50px;
+    }
+    div.EmptyExtra div.dropDown div{
+        left: 36px;
     }
 }

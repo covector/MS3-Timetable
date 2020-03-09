@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="current.js"></script>
+    <script src="extra.js"></script>
     <link rel="shortcut icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -71,8 +72,8 @@
                 <h4><span id = "LinkWord">Link: </span><a href = "" target = "_blank" id = "Link"></a></h4>
             </div>
             <div class = "Button">
-                <button onclick = "Refresh()" class = "refresh">Refresh</button><br />
-                <button onclick = "Copy()" class = "copy">Copy ID</button>
+                <button onclick = "Refresh()" class = "refresh">&#8634; Refresh</button><br />
+                <button onclick = "Copy()" class = "copy">&#x2398; Copy ID</button>
             </div>
         </div>
     </div>
@@ -80,7 +81,45 @@
         <a href = "images/MS3V.png" target="_blank"><img src = "images/MS3V.png" alt = "MS3V Timetable" class = "MS3V"/></a>
         <a href = "images/MS3I.png" target="_blank"><img src = "images/MS3I.png" alt = "MS3I Timetable" class = "MS3I"/></a>
     </div>
-    <div class = "reset" onclick = "ClearCookie()"><button>Clear your class and electives info</button></div>
+    <div class = "reset"><button onclick = "ClearCookie()">Clear your class and electives info</button></div>
+    <div class = "Extra">
+        <h1>Extra Lesson</h1>
+        <div class = "HeaderExtra">
+            <span class = "SubjectT">Subject</span>
+            <span class = "TimeT">Time</span>
+        </div>
+        <div class = "EmptyExtra">
+            <div class = "Subject" onclick = "dropDown()" id = "Subject"></div>
+            <div class = "Time">
+                <div class = "upArrows">
+                    <span class = "AddStartHour" onclick = "changeTime(0, 0, 1)">&#9652;</span>
+                    <span class = "AddStartMin" onclick = "changeTime(0, 1, 1)">&#9652;</span>
+                    <span class = "AddEndHour" onclick = "changeTime(1, 0, 1)">&#9652;</span>
+                    <span class = "AddEndMin" onclick = "changeTime(1, 1, 1)">&#9652;</span>
+                    <span class = "AddDay" onclick = "changeDay(1)">&#9652;</span>
+                </div>
+                <span id = "Time">00:00 - 00:00</span><span id = "Day" class = "Mon">(Mon)</span>
+                <div class = "downArrows">
+                    <span class = "MinusStartHour" onclick = "changeTime(0, 0, -1)">&#9662;</span>
+                    <span class = "MinusStartMin" onclick = "changeTime(0, 1, -1)">&#9662;</span>
+                    <span class = "MinusEndHour" onclick = "changeTime(1, 0, -1)">&#9662;</span>
+                    <span class = "MinusEndMin" onclick = "changeTime(1, 1, -1)">&#9662;</span>
+                    <span class = "MinusDay" onclick = "changeDay(-1)">&#9662;</span>
+                </div>
+            </div>
+            <div class = "dropDown" id = "dropDown">
+                <div class = "Chi" onclick = "changeLesson('Chi')">Chi</div>
+                <div class = "Eng" onclick = "changeLesson('Eng')">Eng</div>
+                <div class = "Math" onclick = "changeLesson('Math')">Math</div>
+                <div class = "TOK" onclick = "changeLesson('TOK')">TOK</div>
+                <div class = "HRT" onclick = "changeLesson('HRT')">HRT</div>
+                <div class = "A" onclick = "changeLesson('A', true)" id = "AChoice">A</div>
+                <div class = "B" onclick = "changeLesson('B', true)" id = "BChoice">B</div>
+                <div class = "C" onclick = "changeLesson('C', true)" id = "CChoice">C</div>
+            </div>
+            <button onclick = "addLesson()">+</button>
+        </div>
+    </div>
     <div class = "footer">This site uses cookie to store your information</div>
 </body>
 </html>
