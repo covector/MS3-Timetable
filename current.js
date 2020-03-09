@@ -51,6 +51,7 @@ UpdateInfo = function(){
     document.getElementById("UrC").textContent = studentInfo["C"];
     document.getElementsByClassName("MS3V")[0].style.display = "none";
     document.getElementsByClassName("MS3I")[0].style.display = "none";
+    document.getElementsByClassName("MS3S")[0].style.display = "none";
     document.getElementsByClassName(studentInfo["Class"])[0].style.display = "inline";
     document.getElementById("AChoice").textContent = studentInfo["A"];
     document.getElementById("BChoice").textContent = studentInfo["B"];
@@ -60,6 +61,11 @@ UpdateInfo = function(){
 selClass = function(key, val){
     studentInfo[key] = val;
     document.cookie = key+"="+val+"; expires=20 Apr 2020 00:00:00 UTC";
+    if (studentInfo["Class"] == "MS3S") {
+        studentInfo["Math"] = "YHY";
+        document.cookie = "Math=YHY; expires=20 Apr 2020 00:00:00 UTC";
+        document.getElementById("Math").style.display = "none";
+    }
     if (selection[key] == 0) {
         selection[key] = 1;
         let card = document.getElementById(key);
@@ -183,6 +189,8 @@ Teacher = function(lesson){
                     return "TK";
                 case "MS3I":
                     return "WCF";
+                case "MS3S":
+                    return "CKW";
             }
             break;
         case "Eng":
@@ -191,6 +199,8 @@ Teacher = function(lesson){
                     return "YTF";
                 case "MS3I":
                     return "LW";
+                case "MS3S":
+                    return "NDN";
             }
         break;
         case "Math":
@@ -202,6 +212,8 @@ Teacher = function(lesson){
                     return "KLY";
                 case "MS3I":
                     return "TSM";
+                case "MS3S":
+                    return "COP";
             }
         break;
         case "HRT":
@@ -210,6 +222,8 @@ Teacher = function(lesson){
                     return "TK";
                 case "MS3I":
                     return "WCF";
+                case "MS3S":
+                    return "CKW";
             }
         break;
         case "A":
@@ -334,6 +348,9 @@ var ID = [];
     ID["WCF"] = 2558829501; 
     ID["YKN"] = 2163878514;
     ID["YTF"] = 2816872757;
+    ID["CKW"] = 6873689333;
+    ID["NDN"] = 3263052676;
+    ID["YHY"] = 5720086942;
 
 var V_1 = ["A", "Eng", "B", "Math", "A", "Eng", "A", "Eng"];
 var V_2 = ["B", "TOK", "A", "Eng", "B", "TOK", "Chi", "Math"];
@@ -347,7 +364,14 @@ var I_3 = ["B", "C", "Chi", "Math", "B", "C", "Math", "A"];
 var I_4 = ["Chi", "C", "Math", "A", "Chi", "C", "C", "Chi"];
 var I_5 = ["HRT", "Eng", "C", "Chi", "HRT", "Eng", "B", "Math"];
 
+var S_1 = ["A", "Math", "B", "Eng", "A", "Math", "A", "Math"]
+var S_2 = ["B", "TOK", "A", "Math", "B", "TOK", "Eng", "Chi"]
+var S_3 = ["B", "C", "Eng", "Chi", "B", "C", "Chi", "A"]
+var S_4 = ["Math", "C", "Chi", "A", "Math", "C", "C", "Chi"]
+var S_5 = ["Eng", "HRT", "C", "Chi", "Eng", "HRT", "B", "Eng"]
+
 TimeTable = []
 TimeTable["MS3V"] = [V_1, V_2, V_3, V_4, V_5];
 TimeTable["MS3I"] = [I_1, I_2, I_3, I_4, I_5];
+TimeTable["MS3S"] = [S_1, S_2, S_3, S_4, S_5];
 
