@@ -82,7 +82,7 @@ div.AskInfo button:focus{
     background-color: rgb(210, 210, 210);
 }
 div.TopBack{
-    padding-top: 70px;
+    padding-top: 64px;
     overflow: hidden;
     height: 500px;
     position: relative;
