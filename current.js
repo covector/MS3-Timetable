@@ -29,8 +29,7 @@ window.onload = function() {
     if (Notification.permission != "granted"){
         Notification.requestPermission().then((permission) => {
                 setUpNotify();
-            }
-        );
+            });
     }
 }
 
@@ -83,11 +82,11 @@ setUpNotify = function(){
         let notList2 = ExtraNotif(hr, min, weekday, sec);
         for (let i = 0; i < notList1.length / 3; i++){
             Notify(notList1[3*i], notList1[3*i + 2]);
-            Notify(notList1[3*i + 1], notList1[3*i + 2], "very");
+            Notify(notList1[3*i + 1], notList1[3*i + 2], "very ");
         }
         for (let i = 0; i < notList2.length / 3; i++){
             Notify(notList2[3*i], notList2[3*i + 2]);
-            Notify(notList2[3*i + 1], notList2[3*i + 2], "very");
+            Notify(notList2[3*i + 1], notList2[3*i + 2], "very ");
         }
     }
 }
@@ -98,7 +97,7 @@ Notify = function(time, subject, adj = ""){
         lessonSub = studentInfo[subject];
     }
     if (time > 0){
-        notify.push(setTimeout(function(){ new Notification("You are having "+lessonSub+" lesson "+adj+" soon.\nID: "+ID[Teacher(subject)]); }, time * 1000));
+        notify.push(setTimeout(function(){ new Notification("You are having "+lessonSub+" lesson "+adj+"soon.\nID: "+ID[Teacher(subject)]); }, time * 1000));
     }
 }
 
