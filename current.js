@@ -230,6 +230,7 @@ Display = function(lesson = null, teacher = null, id = null){
     }
     else{
         lessonText.textContent = "Lesson now: "+displayLesson(lesson, teacher);
+        lessonText.style.color = "white";
         lessonID.value = id;
         lessonLink.textContent = "https://zoom.us/j/"+id;
         lessonLink.href = "https://zoom.us/j/"+id;
