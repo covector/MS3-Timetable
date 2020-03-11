@@ -190,6 +190,30 @@ div.Button button.refresh:active{
 div.Button button.copy:active{
     background-image: linear-gradient(rgb(120, 183, 202), rgb(61, 109, 109));
 }
+div.Button div.Auto button{
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: none;
+    position: relative;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(20, 20, 20);
+}
+div.Button div.Auto button:hover{
+    cursor: pointer;
+}
+div.Button div.Auto{
+    display: flex;
+    margin-left: 7%;
+}
+div.Button div.Auto div{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 8px;
+}
 div.TT{
     text-align: center;
 }
@@ -563,5 +587,8 @@ div.footer{
     }
     div.Extra .Fri{
         margin-left: 11px;
+    }
+    div.Button div.Auto div{
+        font-size: 10px;
     }
 }

@@ -1,5 +1,7 @@
 var notify = [];
 var selection = [];
+var autore = false;
+var nextLessonChange;
 selection["Class"] = 0;
 selection["Math"] = 0;
 selection["A"] = 0;
@@ -8,11 +10,21 @@ selection["C"] = 0;
 var studentInfo = [];
 window.onload = function() {
     let studentCookie = document.cookie.split("; ");
+    let firstTime = true;
     for (let i = 0; i < studentCookie.length; i++){
         let key = studentCookie[i].split("=")[0];
-        if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C"){
+        if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C" & key != "Auto"){
             displayExtra(studentCookie[i]);
         }
+        if (key == "Auto"){
+            firstTime = false;
+            if (studentCookie[i].split("=")[1] == "true"){
+                AutoRefreshToggle();
+            }
+        }
+    }
+    if (firstTime){
+        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC";
     }
     if (infoEnough(studentCookie)){
         document.getElementById("Ask").style.display = "none";
@@ -29,8 +41,11 @@ window.onload = function() {
     if (Notification.permission != "granted"){
         Notification.requestPermission().then((permission) => {
                 setUpNotify();
-            });
+        });
     }
+    navigator.permissions.query({
+        name: 'clipboard-write'
+    });
 }
 
 ProminLesson = function(hr, min, day, sec){
@@ -97,7 +112,10 @@ Notify = function(time, subject, adj = ""){
         lessonSub = studentInfo[subject];
     }
     if (time > 0){
-        notify.push(setTimeout(function(){ new Notification("You are having "+lessonSub+" lesson "+adj+"soon.\nID: "+ID[Teacher(subject)]); notify = notify.slice(1); }, time * 1000));
+        notify.push(setTimeout(function(){ Refresh(); new Notification("You are having "+lessonSub+" lesson "+adj+"soon.\nID: "+ID[Teacher(subject)], { body: "Click to copy ID", icon: "images/qualityThumbnail.png" })
+        .onclick = function() {
+            Copy();
+        };}, time * 1000));
     }
 }
 
@@ -369,11 +387,18 @@ ClearCookie = function(){
         let cookie = document.cookie.split("; ");
         for(let i = 0; i < cookie.length; i++){
             let id = cookie[i].split("=")[0];
-            document.cookie = id+"=Delete; expires=11 Sep 2001 13:46:00 UTC";
-            if (id != "Class" & id != "Math" & id != "A" & id != "B" & id != "C"){
-                deleteLesson(id);
+            if (id != "Auto"){
+                document.cookie = id+"=Delete; expires=11 Sep 2001 13:46:00 UTC";
+                if (id != "Class" & id != "Math" & id != "A" & id != "B" & id != "C"){
+                    deleteLesson(id);
+                }
             }
         }
+        let autoBut = document.getElementById("Auto");
+        autoBut.style.backgroundColor = "rgb(20, 20, 20)";
+        autoBut.style.borderStyle = "none";
+        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC"
+        autore = false;
         document.getElementsByClassName("Extra")[0].style.height = "400px";
         document.getElementById("Subject").textContent = "";
         document.getElementById("Time").textContent = "00:00 - 00:00";
@@ -454,3 +479,49 @@ TimeTable["MS3V"] = [V_1, V_2, V_3, V_4, V_5];
 TimeTable["MS3I"] = [I_1, I_2, I_3, I_4, I_5];
 TimeTable["MS3S"] = [S_1, S_2, S_3, S_4, S_5];
 
+AutoRefreshToggle = function(){
+    let autoBut = document.getElementById("Auto");
+    if (autore){
+        autoBut.style.backgroundColor = "rgb(20, 20, 20)";
+        autoBut.style.borderStyle = "none";
+        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC"
+        autore = false;
+    }
+    else{
+        autoBut.style.backgroundColor = "rgb(81, 212, 69)";
+        autoBut.style.borderStyle = "solid";
+        document.cookie = "Auto=true; expires=20 Apr 2020 00:00:00 UTC"
+        autore = true;
+        ScheduleNextRefresh();
+    }
+}
+
+ScheduleNextRefresh = function(lessonNo){
+    let today = new Date();
+    let now = today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds();
+    let lessonTime = [31500, 33300, 35100, 38700, 43200, 45900, 49500, 53100, 54900];
+    if (lessonNo == null){
+        for (let i = 0; i < 9; i++){
+            let delta = lessonTime[i] - now;
+            if (delta > 0){
+                nextLessonChange = setTimeout(function(){
+                    Refresh();
+                    ScheduleNextRefresh(i);
+                }, 1000 * delta);
+                break;
+            }
+        }
+    }
+    else{
+        if (lessonNo < 8){
+            let delta = lessonTime[lessonNo + 1] - now;
+            if (delta < 0) { alert("Some error has occured, please reload page"); }
+            else{
+                nextLessonChange = setTimeout(function(){
+                    Refresh();
+                    ScheduleNextRefresh(lessonNo + 1);
+                }, 1000 * delta);
+            }
+        }
+    }
+}
