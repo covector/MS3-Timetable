@@ -97,22 +97,22 @@ setUpNotify = function(){
         let notList2 = ExtraNotif(hr, min, weekday, sec);
         for (let i = 0; i < notList1.length / 3; i++){
             Notify(notList1[3*i], notList1[3*i + 2]);
-            Notify(notList1[3*i + 1], notList1[3*i + 2], "very ");
+            Notify(notList1[3*i + 1], notList1[3*i + 2], "{} lesson is starting now");
         }
         for (let i = 0; i < notList2.length / 3; i++){
             Notify(notList2[3*i], notList2[3*i + 2]);
-            Notify(notList2[3*i + 1], notList2[3*i + 2], "very ");
+            Notify(notList2[3*i + 1], notList2[3*i + 2], "{} lesson is starting now");
         }
     }
 }
 
-Notify = function(time, subject, adj = ""){
+Notify = function(time, subject, word = "You are having {} lesson soon"){
     let lessonSub = subject;
     if (subject == "A" | subject == "B" | subject == "C"){
         lessonSub = studentInfo[subject];
     }
     if (time > 0){
-        notify.push(setTimeout(function(){ Refresh(); new Notification("You are having "+lessonSub+" lesson "+adj+"soon.\nID: "+ID[Teacher(subject)], { body: "Click to copy ID", icon: "images/qualityThumbnail.png" })
+        notify.push(setTimeout(function(){ Refresh(); new Notification(word.replace("{}", lessonSub)+".\nID: "+ID[Teacher(subject)], { body: "Click to copy ID", icon: "images/qualityThumbnail.png" })
         .onclick = function() {
             Copy();
         };}, time * 1000));
@@ -499,9 +499,9 @@ AutoRefreshToggle = function(){
 ScheduleNextRefresh = function(lessonNo){
     let today = new Date();
     let now = today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds();
-    let lessonTime = [31500, 33300, 35100, 38700, 43200, 45900, 49500, 53100, 54900];
+    let lessonTime = [31500, 33300, 35100, 38700, 43200, 45900, 49500, 53100, 54900, 57600];
     if (lessonNo == null){
-        for (let i = 0; i < 9; i++){
+        for (let i = 0; i < 10; i++){
             let delta = lessonTime[i] - now;
             if (delta > 0){
                 nextLessonChange = setTimeout(function(){
@@ -513,7 +513,7 @@ ScheduleNextRefresh = function(lessonNo){
         }
     }
     else{
-        if (lessonNo < 8){
+        if (lessonNo < 9){
             let delta = lessonTime[lessonNo + 1] - now;
             if (delta < 0) { alert("Some error has occured, please reload page"); }
             else{
