@@ -50,7 +50,7 @@ window.onload = function() {
 
 ProminLesson = function(hr, min, day, sec){
     let x = hr * 3600 + min * 60 + sec;
-    let tt = TimeTable[studentInfo["Class"]][day]
+    let tt = TimeTable[studentInfo["Class"]][day]；
     return [35400 - x, 35700 - x, tt[2] , 39000 - x, 39300 - x, tt[3], 46200 - x, 46500 - x, tt[4], 49800 - x, 50100 - x, tt[5]];
 }
 
