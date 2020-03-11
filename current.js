@@ -488,7 +488,7 @@ AutoRefreshToggle = function(){
         autore = false;
     }
     else{
-        autoBut.style.backgroundColor = "rgb(81, 212, 69)";
+        autoBut.style.backgroundColor = "rgb(116, 212, 121)";
         autoBut.style.borderStyle = "solid";
         document.cookie = "Auto=true; expires=20 Apr 2020 00:00:00 UTC"
         autore = true;
