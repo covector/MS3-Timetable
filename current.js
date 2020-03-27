@@ -287,7 +287,7 @@ Teacher = function(lesson){
                 case "MS3I":
                     return "WCF";
                 case "MS3S":
-                    return "NDN";
+                    return "CKW";
             }
             break;
         case "Eng":
@@ -320,7 +320,7 @@ Teacher = function(lesson){
                 case "MS3I":
                     return "WCF";
                 case "MS3S":
-                    return "CKW";
+                    return "NDN";
             }
         break;
         case "A":
