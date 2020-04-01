@@ -24,7 +24,7 @@ window.onload = function() {
         }
     }
     if (firstTime){
-        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC";
+        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC";
     }
     if (infoEnough(studentCookie)){
         document.getElementById("Ask").style.display = "none";
@@ -155,10 +155,10 @@ UpdateInfo = function(){
 
 selClass = function(key, val){
     studentInfo[key] = val;
-    document.cookie = key+"="+val+"; expires=20 Apr 2020 00:00:00 UTC";
+    document.cookie = key+"="+val+"; expires=1 Jan 2021 00:00:00 UTC";
     if (studentInfo["Class"] == "MS3S") {
         studentInfo["Math"] = "YHY";
-        document.cookie = "Math=YHY; expires=20 Apr 2020 00:00:00 UTC";
+        document.cookie = "Math=YHY; expires=1 Jan 2021 00:00:00 UTC";
         document.getElementById("Math").style.display = "none";
     }
     if (selection[key] == 0) {
@@ -397,7 +397,7 @@ ClearCookie = function(){
         let autoBut = document.getElementById("Auto");
         autoBut.style.backgroundColor = "rgb(20, 20, 20)";
         autoBut.style.borderStyle = "none";
-        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC"
+        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC"
         autore = false;
         document.getElementsByClassName("Extra")[0].style.height = "400px";
         document.getElementById("Subject").textContent = "";
@@ -484,13 +484,13 @@ AutoRefreshToggle = function(){
     if (autore){
         autoBut.style.backgroundColor = "rgb(20, 20, 20)";
         autoBut.style.borderStyle = "none";
-        document.cookie = "Auto=false; expires=20 Apr 2020 00:00:00 UTC"
+        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC"
         autore = false;
     }
     else{
         autoBut.style.backgroundColor = "rgb(116, 212, 121)";
         autoBut.style.borderStyle = "solid";
-        document.cookie = "Auto=true; expires=20 Apr 2020 00:00:00 UTC"
+        document.cookie = "Auto=true; expires=1 Jan 2021 00:00:00 UTC"
         autore = true;
         ScheduleNextRefresh();
     }
