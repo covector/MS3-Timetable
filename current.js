@@ -51,7 +51,7 @@ window.onload = function() {
 ProminLesson = function(hr, min, day, sec){
     let x = hr * 3600 + min * 60 + sec;
     let tt = TimeTable[studentInfo["Class"]][day];
-    return [35400 - x, 35700 - x, tt[2] , 39000 - x, 39300 - x, tt[3], 46200 - x, 46500 - x, tt[4], 49800 - x, 50100 - x, tt[5]];
+    return [35400 - x, 35700 - x, tt[2] , 39000 - x, 39300 - x, tt[3], 48000 - x, 48300 - x, tt[4], 51600 - x, 51900 - x, tt[5]];
 }
 
 ExtraNotif = function(hr, min, day, sec){
@@ -270,11 +270,11 @@ Mapping = function(hr, min){
     if (x < 9.75){ return 1; }
     if (x < 10.5){ return 2; }
     if (x < 12){ return 3; }
-    if (x < 12.5) { return -2; }
-    if (x < 13.5){ return 4; }
-    if (x < 14.5){ return 5; }
-    if (x < 15.25){ return 6; }
-    if (x < 16){ return 7; }
+    if (x < 13) { return -2; }
+    if (x < 14){ return 4; }
+    if (x < 15){ return 5; }
+    if (x < 15.75){ return 6; }
+    if (x < 16.5){ return 7; }
     return -1;
 }
 
@@ -499,7 +499,7 @@ AutoRefreshToggle = function(){
 ScheduleNextRefresh = function(lessonNo){
     let today = new Date();
     let now = today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds();
-    let lessonTime = [31500, 33300, 35100, 38700, 43200, 45900, 49500, 53100, 54900, 57600];
+    let lessonTime = [31500, 33300, 35100, 38700, 43200, 47700, 51300, 54900, 56700, 59400];
     if (lessonNo == null){
         for (let i = 0; i < 10; i++){
             let delta = lessonTime[i] - now;
