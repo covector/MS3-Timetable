@@ -148,6 +148,9 @@ UpdateInfo = function(){
     document.getElementsByClassName("MS3I")[0].style.display = "none";
     document.getElementsByClassName("MS3S")[0].style.display = "none";
     document.getElementsByClassName(studentInfo["Class"])[0].style.display = "inline";
+    if (studentInfo["Class"] != "MS3V"){
+        document.getElementsByClassName("MS3Virl")[0].style.display = "none";
+    }
     document.getElementById("AChoice").textContent = studentInfo["A"];
     document.getElementById("BChoice").textContent = studentInfo["B"];
     document.getElementById("CChoice").textContent = studentInfo["C"];

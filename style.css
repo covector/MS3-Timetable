@@ -227,6 +227,9 @@ div.TT img{
     border-color: rgb(230, 230, 230);
     border-width: 5px;
 }
+div.TT img.MS3V{
+    opacity: 0.3;
+}
 div.Extra{
     width: 100%;
     display: inline-block;
