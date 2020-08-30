@@ -93,6 +93,7 @@ div.Backdrop{
     background-size: 110%;
     background-position: center;
     z-index: -1;
+    background-attachment: fixed;
 }
 div.Info{
     overflow: hidden;
@@ -123,6 +124,7 @@ div.TopBar{
     position: fixed;
     z-index: 2;
     box-shadow: 0 0 10px black;
+    transition: top 0.3s;
 }
 div.Generate{
     padding: 40px 20px 40px 20px;
@@ -149,6 +151,17 @@ div.Output input{
     border-color: black;
     background-color: rgb(20, 20, 20);
     color: white;
+}
+div.Output div span{
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+div.Output div span#fle{
+    color: rgb(110, 238, 132);
+}
+div.Output div span:hover{
+    cursor: pointer;
 }
 #Link{
     color: rgb(62, 168, 255)
@@ -226,9 +239,6 @@ div.TT img{
     border-style: solid;
     border-color: rgb(230, 230, 230);
     border-width: 5px;
-}
-div.TT img.MS3V{
-    opacity: 0.3;
 }
 div.Extra{
     width: 100%;

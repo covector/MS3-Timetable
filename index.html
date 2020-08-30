@@ -9,15 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>MS3 Timetable</title>
+    <script src="style.js"></script>
+    <title>MS4 Timetable</title>
 </head>
 <body id = "Whole">
     <div class = "AskInfo" id = "Ask">
         <div class = "class" id = "Class">
         <h3>Class</h3>
-            <button onclick = "selClass('Class', 'MS3V')">MS3V</button>
-            <button onclick = "selClass('Class', 'MS3I')">MS3I</button>
-            <button onclick = "selClass('Class', 'MS3S')">MS3S</button>
+            <button onclick = "selClass('Class', 'MS4V')">MS4V</button>
+            <button onclick = "selClass('Class', 'MS4I')">MS4I</button>
+            <button onclick = "selClass('Class', 'MS4S')">MS4S</button>
         </div>
         <div class = "math" id = "Math">
         <h3>Math</h3>
@@ -52,8 +53,8 @@
             <button onclick = "selClass('C', 'VA')">VA</button>
         </div>
     </div>
-    <div class = "TopBar">
-        <strong>MS3</strong> Online Zoom Lesson Timetable
+    <div class = "TopBar" id = "topBar">
+        <strong>MS4</strong> Online Zoom Lesson Timetable
     </div>
     <div class = "TopBack">
         <div class = "Info">
@@ -72,6 +73,7 @@
                 <h2 id = "Lesson">Lesson now:</h2>
                 <input id = "ID" readonly></input>
                 <h4><span id = "LinkWord">Link: </span><a href = "" target = "_blank" id = "Link"></a></h4>
+                <div id="flere"><span id="fle" onclick="flereChange('FLE')">FLE</span><span id="re" onclick="flereChange('RE')">RE</span></div>
             </div>
             <div class = "Button">
                 <button onclick = "Refresh()" class = "refresh">&#8634; Refresh</button><br />
@@ -81,10 +83,9 @@
         </div>
     </div>
     <div class = "TT">
-        <a href = "images/MS3V_irl.png" target="_blank"><img src = "images/MS3V_irl.png" alt = "MS3V Back to School Timetable" class = "MS3Virl"/></a><br />
-        <a href = "images/MS3V.png" target="_blank"><img src = "images/MS3V.png" alt = "MS3V Timetable" class = "MS3V"/></a>
-        <a href = "images/MS3I.png" target="_blank"><img src = "images/MS3I.png" alt = "MS3I Timetable" class = "MS3I"/></a>
-        <a href = "images/MS3S.png" target="_blank"><img src = "images/MS3S.png" alt = "MS3S Timetable" class = "MS3S"/></a>
+        <a href = "images/MS4V.png" target="_blank"><img src = "images/MS4V.png" alt = "MS4V Timetable" class = "MS4V"/></a>
+        <a href = "images/MS4I.png" target="_blank"><img src = "images/MS4I.png" alt = "MS4I Timetable" class = "MS4I"/></a>
+        <a href = "images/MS4S.png" target="_blank"><img src = "images/MS4S.png" alt = "MS4S Timetable" class = "MS4S"/></a>
     </div>
     <div class = "reset"><button onclick = "ClearCookie()"><i class="fa fa-trash"></i> Clear your class and electives info</button></div>
     <div class = "Extra">

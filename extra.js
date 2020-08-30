@@ -64,7 +64,7 @@ addLesson = function(){
         document.getElementsByClassName("Extra")[0].insertBefore(divContain, before)
 
         ExtraLessons.push([newSubject.textContent, Extratime[0], Extratime[1], Extratime[2], Extratime[3], Extratime[4]]);
-        document.cookie = customID+"="+newSubject.textContent+"; expires=1 Jan 2021 00:00:00 UTC";
+        document.cookie = customID+"="+newSubject.textContent+"; expires=1 Jan 2022 00:00:00 UTC";
 
         subject.textContent = "";
         Extratime = [0, 0, 0, 0, 0];

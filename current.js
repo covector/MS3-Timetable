@@ -2,6 +2,7 @@ var notify = [];
 var selection = [];
 var autore = false;
 var nextLessonChange;
+var flere = "FLE";
 selection["Class"] = 0;
 selection["Math"] = 0;
 selection["A"] = 0;
@@ -11,8 +12,16 @@ var studentInfo = [];
 window.onload = function() {
     let studentCookie = document.cookie.split("; ");
     let firstTime = true;
+    
     for (let i = 0; i < studentCookie.length; i++){
         let key = studentCookie[i].split("=")[0];
+
+        // hack
+        if (key == "Class" & studentCookie[i].split("=")[1][2] == "3") {
+            refreshCookie(studentCookie);
+        }
+        //
+
         if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C" & key != "Auto"){
             displayExtra(studentCookie[i]);
         }
@@ -24,7 +33,7 @@ window.onload = function() {
         }
     }
     if (firstTime){
-        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC";
+        document.cookie = "Auto=false; expires=1 Jan 2022 00:00:00 UTC";
     }
     if (infoEnough(studentCookie)){
         document.getElementById("Ask").style.display = "none";
@@ -51,7 +60,11 @@ window.onload = function() {
 ProminLesson = function(hr, min, day, sec){
     let x = hr * 3600 + min * 60 + sec;
     let tt = TimeTable[studentInfo["Class"]][day];
-    return [35400 - x, 35700 - x, tt[2] , 39000 - x, 39300 - x, tt[3], 48000 - x, 48300 - x, tt[4], 51600 - x, 51900 - x, tt[5]];
+    let list = [31500 - x, 31800 - x, tt[0], 35100 - x, 35400 - x, tt[1], 38700 - x, 39000 - x, tt[2], 47700 - x, 48000 - x, tt[3], 51300 - x, 51600 - x, tt[4], 54900 - x, 55200 - x, tt[5], 58500 - x, 58800 - x, tt[6]];
+    if (tt[6]=="None"){
+        return list.slice(0, 18);
+    }
+    return list;
 }
 
 ExtraNotif = function(hr, min, day, sec){
@@ -144,13 +157,10 @@ UpdateInfo = function(){
     document.getElementById("UrA").textContent = studentInfo["A"];
     document.getElementById("UrB").textContent = studentInfo["B"];
     document.getElementById("UrC").textContent = studentInfo["C"];
-    document.getElementsByClassName("MS3V")[0].style.display = "none";
-    document.getElementsByClassName("MS3I")[0].style.display = "none";
-    document.getElementsByClassName("MS3S")[0].style.display = "none";
+    document.getElementsByClassName("MS4V")[0].style.display = "none";
+    document.getElementsByClassName("MS4I")[0].style.display = "none";
+    document.getElementsByClassName("MS4S")[0].style.display = "none";
     document.getElementsByClassName(studentInfo["Class"])[0].style.display = "inline";
-    if (studentInfo["Class"] != "MS3V"){
-        document.getElementsByClassName("MS3Virl")[0].style.display = "none";
-    }
     document.getElementById("AChoice").textContent = studentInfo["A"];
     document.getElementById("BChoice").textContent = studentInfo["B"];
     document.getElementById("CChoice").textContent = studentInfo["C"];
@@ -158,10 +168,10 @@ UpdateInfo = function(){
 
 selClass = function(key, val){
     studentInfo[key] = val;
-    document.cookie = key+"="+val+"; expires=1 Jan 2021 00:00:00 UTC";
-    if (studentInfo["Class"] == "MS3S") {
+    document.cookie = key+"="+val+"; expires=1 Jan 2022 00:00:00 UTC";
+    if (studentInfo["Class"] == "MS4S") {
         studentInfo["Math"] = "YHY";
-        document.cookie = "Math=YHY; expires=1 Jan 2021 00:00:00 UTC";
+        document.cookie = "Math=YHY; expires=1 Jan 2022 00:00:00 UTC";
         document.getElementById("Math").style.display = "none";
     }
     if (selection[key] == 0) {
@@ -190,6 +200,7 @@ Refresh = function(){
         if (!extra){
             let todayLesson = TimeTable[studentInfo["Class"]][weekday];
             let currLessonNo = Mapping(hr, min);
+            if (todayLesson[currLessonNo] == "None"){ currLessonNo = -1; }
             if (currLessonNo >= 0) {
                 let currLesson = todayLesson[currLessonNo];
                 let currTeacher = Teacher(currLesson);
@@ -257,9 +268,18 @@ Display = function(lesson = null, teacher = null, id = null){
         lessonLink.href = "https://zoom.us/j/"+id;
         lessonLinkWord.textContent = "Link: ";
     }
+    if (lesson == "FleRe"){
+        document.getElementById("flere").style.display = "block";
+    }
+    else{
+        document.getElementById("flere").style.display = "none";
+    }
 }
 
 displayLesson = function(lesson, teacher){
+    if (lesson == "ReFle"){
+        lesson = refle;
+    }
     if (lesson == "A" | lesson == "B" | lesson == "C"){
         return studentInfo[lesson]+" ("+teacher+")";
     }
@@ -269,15 +289,14 @@ displayLesson = function(lesson, teacher){
 Mapping = function(hr, min){
     let x = hr + min / 60;
     if (x < 8){ return -1; }
-    if (x < 9.25){ return 0; }
-    if (x < 9.75){ return 1; }
-    if (x < 10.5){ return 2; }
-    if (x < 12){ return 3; }
+    if (x < 9.5){ return 0; }
+    if (x < 10.5){ return 1; }
+    if (x < 11.5){ return 2; }
     if (x < 13) { return -2; }
-    if (x < 14){ return 4; }
-    if (x < 15){ return 5; }
-    if (x < 15.75){ return 6; }
-    if (x < 16.5){ return 7; }
+    if (x < 14){ return 3; }
+    if (x < 15){ return 4; }
+    if (x < 16){ return 5; }
+    if (x < 17){ return 6; }
     return -1;
 }
 
@@ -285,47 +304,47 @@ Teacher = function(lesson){
     switch(lesson){
         case "Chi":
             switch(studentInfo["Class"]){
-                case "MS3V":
+                case "MS4V":
                     return "TK";
-                case "MS3I":
+                case "MS4I":
                     return "WCF";
-                case "MS3S":
+                case "MS4S":
                     return "CKW";
             }
             break;
         case "Eng":
             switch(studentInfo["Class"]){
-                case "MS3V":
+                case "MS4V":
                     return "YTF";
-                case "MS3I":
+                case "MS4I":
                     return "LW";
-                case "MS3S":
+                case "MS4S":
                     return "NDN";
             }
-        break;
+            break;
         case "Math":
             return studentInfo["Math"];
-        break;
+            break;
         case "TOK":
             switch(studentInfo["Class"]){
-                case "MS3V":
+                case "MS4V":
                     return "KLY";
-                case "MS3I":
+                case "MS4I":
                     return "TSM";
-                case "MS3S":
+                case "MS4S":
                     return "COP";
             }
-        break;
+            break;
         case "HRT":
             switch(studentInfo["Class"]){
-                case "MS3V":
+                case "MS4V":
                     return "TK";
-                case "MS3I":
+                case "MS4I":
                     return "WCF";
-                case "MS3S":
+                case "MS4S":
                     return "NDN";
             }
-        break;
+            break;
         case "A":
             switch(studentInfo["A"]){
                 case "Bio":
@@ -339,7 +358,21 @@ Teacher = function(lesson){
                 case "Psy":
                     return "LGW";
             }
-        break;
+            break;
+        case "Amod":
+            switch(studentInfo["A"]){
+                case "Bio":
+                    return "LWC";
+                case "Chem":
+                    return "WCK";
+                case "Econ":
+                    return "YKN";
+                case "Geo":
+                    return "LTC";
+                case "Psy":
+                    return "YPWP";
+            }
+            break;
         case "B":
             switch(studentInfo["B"]){
                 case "Bio":
@@ -355,7 +388,23 @@ Teacher = function(lesson){
                 case "Psy":
                     return "LGW";
             }
-        break;
+            break;
+        case "Bmod":
+            switch(studentInfo["B"]){
+                case "Bio":
+                    return "LWC";
+                case "Chem":
+                    return "KWM";
+                case "Econ":
+                    return "YKN";
+                case "Geo":
+                    return "LTC";
+                case "Phy":
+                    return "LCH";
+                case "Psy":
+                    return "YPWP";
+            }
+            break;
         case "C":
             switch(studentInfo["C"]){
                 case "Bio":
@@ -367,11 +416,25 @@ Teacher = function(lesson){
                 case "Hist":
                     return "TKF";
                 case "Phy":
-                    return "LSH";
+                    return "LCH";
                 case "VA":
                     return "NWY";
             }
-        break;
+            break;
+        case "PE":
+            return "NTM";
+            break;
+        case "ReFle":
+            switch(refle){
+                case "FLE":
+                    return "HWL";
+                case "RE":
+                    return "TWY";
+            }
+            break;
+        case "None":
+            return "";
+            break;
         default:
             alert("an error has occured, please reload page");
     }
@@ -400,7 +463,7 @@ ClearCookie = function(){
         let autoBut = document.getElementById("Auto");
         autoBut.style.backgroundColor = "rgb(20, 20, 20)";
         autoBut.style.borderStyle = "none";
-        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC"
+        document.cookie = "Auto=false; expires=1 Jan 2022 00:00:00 UTC"
         autore = false;
         document.getElementsByClassName("Extra")[0].style.height = "400px";
         document.getElementById("Subject").textContent = "";
@@ -458,42 +521,45 @@ var ID = [];
     ID["CKW"] = 6873689333;
     ID["NDN"] = 3263052676;
     ID["YHY"] = 5720086942;
+    ID["HWL"] = 5168805269;
+    ID["TWY"] = 4287727803;
+    ID["NTM"] = 7823785789;
 
-var V_1 = ["A", "Eng", "B", "Math", "A", "Eng", "A", "Eng"];
-var V_2 = ["B", "TOK", "A", "Eng", "B", "TOK", "Chi", "Math"];
-var V_3 = ["B", "C", "Chi", "Math", "B", "C", "Math", "A"];
-var V_4 = ["Chi", "C", "Math", "A", "Chi", "C", "C", "Chi"];
-var V_5 = ["HRT", "Eng", "C", "Chi", "HRT", "Eng", "B", "Math"];
+var V_1 = ["HRT", "B", "Math", "A", "C", "TOK", "Amod"];
+var V_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
+var V_3 = ["TOK", "Eng", "Math", "A", "B", "Chi", "Bmod"];
+var V_4 = ["ReFle", "Chi", "Eng", "C", "B", "HRT", "Math"];
+var V_5 = ["Math", "PE", "C", "Chi", "A", "Eng", "None"];
 
-var I_1 = ["A", "Eng", "B", "Math", "A", "Eng", "A", "Eng"];
-var I_2 = ["B", "TOK", "A", "Eng", "B", "TOK", "Chi", "Math"];
-var I_3 = ["B", "C", "Chi", "Math", "B", "C", "Math", "A"];
-var I_4 = ["Chi", "C", "Math", "A", "Chi", "C", "C", "Chi"];
-var I_5 = ["HRT", "Eng", "C", "Chi", "HRT", "Eng", "B", "Math"];
+var I_1 = ["HRT", "B", "Math", "A", "C", "Chi", "Amod"];
+var I_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
+var I_3 = ["Chi", "PE", "Math", "A", "B", "Eng", "Bmod"];
+var I_4 = ["ReFle", "TOK", "Eng", "C", "B", "HRT", "Math"];
+var I_5 = ["Math", "Eng", "C", "Chi", "A", "TOK", "None"];
 
-var S_1 = ["A", "Math", "B", "Eng", "A", "Math", "A", "Math"]
-var S_2 = ["B", "TOK", "A", "Math", "B", "TOK", "Eng", "Chi"]
-var S_3 = ["B", "C", "Eng", "Chi", "B", "C", "Chi", "A"]
-var S_4 = ["Math", "C", "Chi", "A", "Math", "C", "C", "Chi"]
-var S_5 = ["Eng", "HRT", "C", "Chi", "Eng", "HRT", "B", "Eng"]
+var S_1 = ["HRT", "B", "Chi", "A", "C", "Eng", "Amod"];
+var S_2 = ["C", "B", "ReFle", "A", "Math", "TOK", "C"];
+var S_3 = ["PE", "Eng", "Math", "A", "B", "Chi", "Bmod"];
+var S_4 = ["Chi", "Eng", "Math", "C", "B", "HRT", "None"];
+var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "None"];
 
 TimeTable = []
-TimeTable["MS3V"] = [V_1, V_2, V_3, V_4, V_5];
-TimeTable["MS3I"] = [I_1, I_2, I_3, I_4, I_5];
-TimeTable["MS3S"] = [S_1, S_2, S_3, S_4, S_5];
+TimeTable["MS4V"] = [V_1, V_2, V_3, V_4, V_5];
+TimeTable["MS4I"] = [I_1, I_2, I_3, I_4, I_5];
+TimeTable["MS4S"] = [S_1, S_2, S_3, S_4, S_5];
 
 AutoRefreshToggle = function(){
     let autoBut = document.getElementById("Auto");
     if (autore){
         autoBut.style.backgroundColor = "rgb(20, 20, 20)";
         autoBut.style.borderStyle = "none";
-        document.cookie = "Auto=false; expires=1 Jan 2021 00:00:00 UTC"
+        document.cookie = "Auto=false; expires=1 Jan 2022 00:00:00 UTC";
         autore = false;
     }
     else{
         autoBut.style.backgroundColor = "rgb(116, 212, 121)";
         autoBut.style.borderStyle = "solid";
-        document.cookie = "Auto=true; expires=1 Jan 2021 00:00:00 UTC"
+        document.cookie = "Auto=true; expires=1 Jan 2022 00:00:00 UTC";
         autore = true;
         ScheduleNextRefresh();
     }
@@ -502,7 +568,7 @@ AutoRefreshToggle = function(){
 ScheduleNextRefresh = function(lessonNo){
     let today = new Date();
     let now = today.getHours() * 3600 + today.getMinutes() * 60 + today.getSeconds();
-    let lessonTime = [31500, 33300, 35100, 38700, 43200, 47700, 51300, 54900, 56700, 59400];
+    let lessonTime = [31200, 34800, 38400, 42600, 47400, 51000, 54600, 58200, 63000];
     if (lessonNo == null){
         for (let i = 0; i < 10; i++){
             let delta = lessonTime[i] - now;
@@ -516,7 +582,7 @@ ScheduleNextRefresh = function(lessonNo){
         }
     }
     else{
-        if (lessonNo < 9){
+        if (lessonNo < lessonTime.length-1){
             let delta = lessonTime[lessonNo + 1] - now;
             if (delta < 0) { alert("Some error has occured, please reload page"); }
             else{
@@ -525,6 +591,38 @@ ScheduleNextRefresh = function(lessonNo){
                     ScheduleNextRefresh(lessonNo + 1);
                 }, 1000 * delta);
             }
+        }
+    }
+}
+
+flereChange = function(to){
+    if (to=="FLE"){
+        document.getElementById("fle").style.color = "rgb(110, 238, 132)";
+        document.getElementById("re").style.color = "white";
+        flere = "FLE";
+    }
+    if (to=="RE"){
+        document.getElementById("re").style.color = "rgb(110, 238, 132)";
+        document.getElementById("fle").style.color = "white";
+        flere = "RE";
+    }
+    Refresh();
+}
+
+// hack
+var ms3to4 = [];
+ms3to4["MS3V"] = "MS4V";
+ms3to4["MS3I"] = "MS4I";
+ms3to4["MS3S"] = "MS4S";
+
+refreshCookie = function(cookie){
+    for (let i = 0; i < cookie.length; i++){
+        let pair = cookie[i].split("=");
+        if (pair[0] == "Class"){
+            document.cookie = "Class="+ms3to4[pair[1]]+"; expires=1 Jan 2022 00:00:00 UTC";
+        }
+        else{
+            document.cookie = cookie[i]+"; expires=1 Jan 2022 00:00:00 UTC";
         }
     }
 }
