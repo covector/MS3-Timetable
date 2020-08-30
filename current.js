@@ -16,12 +16,6 @@ window.onload = function() {
     for (let i = 0; i < studentCookie.length; i++){
         let key = studentCookie[i].split("=")[0];
 
-        // hack
-        if (key == "Class" & studentCookie[i].split("=")[1][2] == "3") {
-            refreshCookie(studentCookie);
-        }
-        //
-
         if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C" & key != "Auto"){
             displayExtra(studentCookie[i]);
         }
@@ -607,22 +601,4 @@ flereChange = function(to){
         flere = "RE";
     }
     Refresh();
-}
-
-// hack
-var ms3to4 = [];
-ms3to4["MS3V"] = "MS4V";
-ms3to4["MS3I"] = "MS4I";
-ms3to4["MS3S"] = "MS4S";
-
-refreshCookie = function(cookie){
-    for (let i = 0; i < cookie.length; i++){
-        let pair = cookie[i].split("=");
-        if (pair[0] == "Class"){
-            document.cookie = "Class="+ms3to4[pair[1]]+"; expires=1 Jan 2022 00:00:00 UTC";
-        }
-        else{
-            document.cookie = cookie[i]+"; expires=1 Jan 2022 00:00:00 UTC";
-        }
-    }
 }
