@@ -71,5 +71,10 @@ window.onload = function() {
         divContain.append(idNo);
         divContain.append(button);
         document.getElementById("list").insertBefore(divContain, before);
+
+        updateTopBar();
     }
 }
+
+//hack
+var newFeature = false;

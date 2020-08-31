@@ -176,7 +176,9 @@ no2Dy = function(x){
     return weekday[x];
 }
 extraLessonCount = function(){
-    return document.cookie.split("; ").length - 6;
+    let newF = 0;
+    if (!newFeature){ newF = 1; }
+    return document.cookie.split("; ").length - 6 - newF; //No. of non extra lesson cookie
 }
 inputValidation = function(){
     if (document.getElementById("Subject").textContent == "") { return false; }

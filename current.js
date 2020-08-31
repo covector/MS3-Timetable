@@ -3,6 +3,7 @@ var selection = [];
 var autore = false;
 var nextLessonChange;
 var flere = "FLE";
+var newFeature = true;
 selection["Class"] = 0;
 selection["Math"] = 0;
 selection["A"] = 0;
@@ -16,7 +17,7 @@ window.onload = function() {
     for (let i = 0; i < studentCookie.length; i++){
         let key = studentCookie[i].split("=")[0];
 
-        if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C" & key != "Auto"){
+        if (key != "Class" & key != "Math" & key != "A" & key != "B" & key != "C" & key != "Auto" & key != "New"){
             displayExtra(studentCookie[i]);
         }
         if (key == "Auto"){
@@ -24,6 +25,10 @@ window.onload = function() {
             if (studentCookie[i].split("=")[1] == "true"){
                 AutoRefreshToggle();
             }
+        }
+        if (key == "New"){
+            document.getElementById("new").style.display = "none";
+            newFeature = false;
         }
     }
     if (firstTime){
@@ -49,6 +54,7 @@ window.onload = function() {
     navigator.permissions.query({
         name: 'clipboard-write'
     });
+    updateTopBar();
 }
 
 ProminLesson = function(hr, min, day, sec){
@@ -447,9 +453,9 @@ ClearCookie = function(){
         let cookie = document.cookie.split("; ");
         for(let i = 0; i < cookie.length; i++){
             let id = cookie[i].split("=")[0];
-            if (id != "Auto"){
+            if (id != "Auto" & id != "New"){
                 document.cookie = id+"=Delete; expires=11 Sep 2001 13:46:00 UTC";
-                if (id != "Class" & id != "Math" & id != "A" & id != "B" & id != "C"){
+                if (id != "Class" & id != "Math" & id != "A" & id != "B" & id != "C" & id != "New"){
                     deleteLesson(id);
                 }
             }
