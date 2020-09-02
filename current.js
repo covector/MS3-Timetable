@@ -282,6 +282,8 @@ displayLesson = function(lesson, teacher){
     if (lesson == "ReFle"){
         lesson = refle;
     }
+    if (lesson == "Bmod"){ lesson = "B"; }
+    if (lesson == "Cmod"){ lesson = "C"; }
     if (lesson == "A" | lesson == "B" | lesson == "C"){
         return studentInfo[lesson]+" ("+teacher+")";
     }
