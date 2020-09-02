@@ -121,6 +121,8 @@ setUpNotify = function(){
 
 Notify = function(time, subject, word = "You are having {} lesson soon"){
     let lessonSub = subject;
+    if (subject == "Bmod"){ subject = "B"; }
+    if (subject == "Cmod"){ subject = "C"; }
     if (subject == "A" | subject == "B" | subject == "C"){
         lessonSub = studentInfo[subject];
     }
