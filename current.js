@@ -437,6 +437,8 @@ Teacher = function(lesson){
                     return "TWY";
             }
             break;
+        case "Assembly":
+            return "Assembly";
         case "None":
             return "";
             break;
@@ -497,56 +499,23 @@ ClearCookie = function(){
     }
 }
 
-var ID = [];
-    ID["CMHS"] = 4250521170;
-    ID["COP"] = 7442953999;
-    ID["KLY"] = 3917322830;
-    ID["YPWP"] = 7578549019;
-    ID["LKY"] = 8046325344;
-    ID["TSM"] = 9580105163;
-    ID["FCW"] = 7243497346;
-    ID["KYT"] = 3470015685;
-    ID["KKH"] = 4363847326;
-    ID["KWM"] = 9707531036;
-    ID["LWC"] = 7153001742;
-    ID["LW"] = 9220387241;
-    ID["LTC"] = 8634365482;
-    ID["LYKY"] = 6630791936;
-    ID["LGW"] = 3651136599;
-    ID["LCH"] = 7355556244;
-    ID["LKB"] = 2815409930;
-    ID["LSH"] = 6941560994;
-    ID["NWY"] = 3524716921;
-    ID["TKF"] = 4249805562;
-    ID["TK"] = 2233127322;
-    ID["WCK"] = 9544379197;
-    ID["WCF"] = 2558829501; 
-    ID["YKN"] = 2163878514;
-    ID["YTF"] = 2816872757;
-    ID["CKW"] = 6873689333;
-    ID["NDN"] = 3263052676;
-    ID["YHY"] = 5720086942;
-    ID["HWL"] = 5168805269;
-    ID["TWY"] = 4287727803;
-    ID["NTM"] = 7823785789;
-
 var V_1 = ["HRT", "B", "Math", "A", "C", "TOK", "Amod"];
 var V_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
 var V_3 = ["TOK", "Eng", "Math", "A", "B", "Chi", "Bmod"];
 var V_4 = ["FleRe", "Chi", "Eng", "C", "B", "HRT", "Math"];
-var V_5 = ["Math", "PE", "C", "Chi", "A", "Eng", "None"];
+var V_5 = ["Math", "PE", "C", "Chi", "A", "Eng", "Assembly"];
 
 var I_1 = ["HRT", "B", "Math", "A", "C", "Chi", "Amod"];
 var I_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
 var I_3 = ["Chi", "PE", "Math", "A", "B", "Eng", "Bmod"];
 var I_4 = ["FleRe", "TOK", "Eng", "C", "B", "HRT", "Math"];
-var I_5 = ["Math", "Eng", "C", "Chi", "A", "TOK", "None"];
+var I_5 = ["Math", "Eng", "C", "Chi", "A", "TOK", "Assembly"];
 
 var S_1 = ["HRT", "B", "Chi", "A", "C", "Eng", "Amod"];
 var S_2 = ["C", "B", "FleRe", "A", "Math", "TOK", "C"];
 var S_3 = ["PE", "Eng", "Math", "A", "B", "Chi", "Bmod"];
 var S_4 = ["Chi", "Eng", "Math", "C", "B", "HRT", "None"];
-var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "None"];
+var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "Assembly"];
 
 TimeTable = []
 TimeTable["MS4V"] = [V_1, V_2, V_3, V_4, V_5];
