@@ -126,6 +126,7 @@ Notify = function(time, subject, word = "You are having {} lesson soon"){
     if (subject == "A" | subject == "B" | subject == "C"){
         lessonSub = studentInfo[subject];
     }
+    if (subject == "FleRe"){ lessonSub = flere; }
     if (time > 0){
         notify.push(setTimeout(function(){ Refresh(); new Notification(word.replace("{}", lessonSub)+".\nID: "+ID[Teacher(subject)], { body: "Click to copy ID", icon: "images/qualityThumbnail.png" })
         .onclick = function() {
