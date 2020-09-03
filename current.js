@@ -279,8 +279,8 @@ Display = function(lesson = null, teacher = null, id = null){
 }
 
 displayLesson = function(lesson, teacher){
-    if (lesson == "ReFle"){
-        lesson = refle;
+    if (lesson == "FleRe"){
+        lesson = flere;
     }
     if (lesson == "Bmod"){ lesson = "B"; }
     if (lesson == "Cmod"){ lesson = "C"; }
@@ -428,8 +428,8 @@ Teacher = function(lesson){
         case "PE":
             return "NTM";
             break;
-        case "ReFle":
-            switch(refle){
+        case "FleRe":
+            switch(flere){
                 case "FLE":
                     return "HWL";
                 case "RE":
@@ -440,7 +440,7 @@ Teacher = function(lesson){
             return "";
             break;
         default:
-            alert("an error has occured, please reload page");
+            alert("an error has occured, please reload the page");
     }
 }
 
@@ -532,17 +532,17 @@ var ID = [];
 var V_1 = ["HRT", "B", "Math", "A", "C", "TOK", "Amod"];
 var V_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
 var V_3 = ["TOK", "Eng", "Math", "A", "B", "Chi", "Bmod"];
-var V_4 = ["ReFle", "Chi", "Eng", "C", "B", "HRT", "Math"];
+var V_4 = ["FleRe", "Chi", "Eng", "C", "B", "HRT", "Math"];
 var V_5 = ["Math", "PE", "C", "Chi", "A", "Eng", "None"];
 
 var I_1 = ["HRT", "B", "Math", "A", "C", "Chi", "Amod"];
 var I_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
 var I_3 = ["Chi", "PE", "Math", "A", "B", "Eng", "Bmod"];
-var I_4 = ["ReFle", "TOK", "Eng", "C", "B", "HRT", "Math"];
+var I_4 = ["FleRe", "TOK", "Eng", "C", "B", "HRT", "Math"];
 var I_5 = ["Math", "Eng", "C", "Chi", "A", "TOK", "None"];
 
 var S_1 = ["HRT", "B", "Chi", "A", "C", "Eng", "Amod"];
-var S_2 = ["C", "B", "ReFle", "A", "Math", "TOK", "C"];
+var S_2 = ["C", "B", "FleRe", "A", "Math", "TOK", "C"];
 var S_3 = ["PE", "Eng", "Math", "A", "B", "Chi", "Bmod"];
 var S_4 = ["Chi", "Eng", "Math", "C", "B", "HRT", "None"];
 var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "None"];
