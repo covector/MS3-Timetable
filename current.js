@@ -122,7 +122,7 @@ setUpNotify = function(){
 Notify = function(time, subject, word = "You are having {} lesson soon"){
     let lessonSub = subject;
     if (subject == "Bmod"){ subject = "B"; }
-    if (subject == "Cmod"){ subject = "C"; }
+    if (subject == "Amod"){ subject = "A"; }
     if (subject == "A" | subject == "B" | subject == "C"){
         lessonSub = studentInfo[subject];
     }
@@ -284,7 +284,7 @@ displayLesson = function(lesson, teacher){
         lesson = flere;
     }
     if (lesson == "Bmod"){ lesson = "B"; }
-    if (lesson == "Cmod"){ lesson = "C"; }
+    if (lesson == "Amod"){ lesson = "A"; }
     if (lesson == "A" | lesson == "B" | lesson == "C"){
         return studentInfo[lesson]+" ("+teacher+")";
     }
