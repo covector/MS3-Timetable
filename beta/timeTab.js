@@ -1,5 +1,5 @@
 // All time is in hour
-var earlyNotify = [5/60, 10/60, 15/60];
+var earlyNotify = [6/60, 10/60, 15/60];
 var earlyStart = 30/60;
 var earlyRefresh = 20/60;
 
