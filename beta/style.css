@@ -1,0 +1,703 @@
+body{
+    margin: 0 0 0 0;
+    background-color: rgb(221, 221, 221);
+    font-family: Roboto, sans-serif;
+}
+div.AskInfo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    text-align: center;
+}
+div.AskInfo div{
+    position: fixed;
+    padding-top: 30vh;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgb(240, 240, 240);
+}
+div.c{
+    z-index: 5;
+    animation-name: InfoCardL;
+    animation-duration: 1s;
+    animation-play-state: paused;
+}
+div.b{
+    z-index: 6;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.a{
+    z-index: 7;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.math{
+    z-index: 8;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+div.class{
+    z-index: 9;
+    animation-name: InfoCard;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    top: 20vh;
+}
+@keyframes InfoCard{
+    from { opacity: 1; top: 0vh; }
+    to { opacity: 0; top: 20vh; }
+}
+@keyframes InfoCardL{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+div.AskInfo h3{
+    font-size: 70px;
+    font-family: Roboto, sans-serif;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+div.AskInfo button{
+    background-color: rgb(240, 240, 240);
+    margin-left: 0;
+    margin-right: 0;
+    border-style: none;
+    font-size: 30px;
+    padding: 10px 20px 10px 20px;
+}
+div.AskInfo button:hover{
+    background-color: rgb(225, 225, 225);
+    cursor: pointer;
+}
+div.AskInfo button:focus{
+    background-color: rgb(210, 210, 210);
+}
+div.TopBack{
+    padding-top: 64px;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+}
+div.Backdrop{
+    background-image: url(images/TT_Blurred.png);
+    height: 100%;
+    background-size: 110%;
+    background-position: center;
+    z-index: -1;
+    background-attachment: fixed;
+}
+div.Info{
+    overflow: hidden;
+    position: absolute;
+    font-size: 25px;
+    margin-left: 60%;
+    margin-top: 50px;
+    width: 35%;
+    height: 400px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(119, 119, 119);
+    padding-top: 10px;
+    padding-left: 20px;
+}
+div.Info strong{
+    font-size: 30px;
+    font-family: Oxygen, Roboto, sans-serif;
+}
+div.TopBar{
+    background-color: rgb(30, 30, 30);
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 0 10px black;
+    transition: top 0.3s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+div.TopBar div.logo{
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(80, 80, 80);
+    padding-right: 20px;
+    margin-right: 20px;
+}
+div.TopBar div.button{
+    font-size: 20px;
+    margin-right: 30px;
+}
+div.TopBar div.button a{
+    text-decoration: none;
+    color: white;
+}
+div.TopBar div.button a:hover{
+    cursor: pointer;
+    color: rgb(194, 194, 194);
+    transition: color 0.2s;
+}
+div#new{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(72, 106, 199);
+    margin-top: 0px;
+    font-size: 15px;
+    line-height: 30px;
+    position: fixed;
+    z-index: 3;
+    color: white;
+}
+div#new span{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+div#new span:hover{
+    cursor: pointer;
+}
+div.Generate{
+    padding: 40px 20px 40px 20px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px black;
+    position: relative;
+}
+div.Center{
+    display: inline-flex;
+}
+div.Center div{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+div.Output input{
+    height: 40px;
+    width: 250px;
+    font-size: 40px;
+    text-align: center;
+    font-family: inherit;
+    border-style: solid;
+    border-color: black;
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+div.Output div span{
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+div.Output div span#fle{
+    color: rgb(110, 238, 132);
+}
+div.Output div span:hover{
+    cursor: pointer;
+}
+#Link{
+    color: rgb(62, 168, 255)
+}
+div.Button button{
+    font-family: inherit;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 250px;
+    height: 70px;
+    font-size: 25px;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 0 10px black;
+    border-style: none;
+}
+div.Button button.refresh{
+    background-image: linear-gradient(rgb(141, 235, 156), rgb(84, 148, 95));
+    border-radius: 5px;
+}
+div.Button button.copy{
+    background-image: linear-gradient(rgb(141, 213, 235), rgb(84, 148, 148));
+    border-radius: 5px;
+}
+div.Button button.refresh:hover{
+    background-image: linear-gradient(rgb(170, 247, 183), rgb(105, 187, 119));
+    cursor: pointer;
+}
+div.Button button.copy:hover{
+    background-image: linear-gradient(rgb(162, 233, 255), rgb(98, 157, 172));
+    cursor: pointer;
+}
+div.Button button:focus{
+    outline: 0;
+}
+div.Button button.refresh:active{
+    background-image: linear-gradient(rgb(126, 212, 141), rgb(61, 109, 69));
+}
+div.Button button.copy:active{
+    background-image: linear-gradient(rgb(120, 183, 202), rgb(61, 109, 109));
+}
+div.Button div.Auto button{
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: none;
+    position: relative;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(20, 20, 20);
+}
+div.Button div.Auto button:hover{
+    cursor: pointer;
+}
+div.Button div.Auto{
+    display: flex;
+    margin-left: 7%;
+}
+div.Button div.Auto div{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 8px;
+}
+div.TT{
+    text-align: center;
+}
+div.TT img{
+    width: 800px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    border-style: solid;
+    border-color: rgb(230, 230, 230);
+    border-width: 5px;
+}
+div.Extra{
+    width: 100%;
+    display: inline-block;
+    height: 400px;
+    margin-top: 50px;
+    box-shadow: 0 0 5px black;
+    background-color: rgb(30, 30, 30);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+div.Extra h1{
+    text-align: left;
+    margin-left: 20px;
+}
+div.Extra button{
+    border-style: none;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    border-radius: 50%;
+    font-size: 25px;
+    outline: 0;
+}
+div.Extra button:hover{
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+}
+div.Extra .Mon{
+    margin-left: 3px;
+}
+div.Extra .Tue{
+    margin-left: 10px;
+}
+div.Extra .Wed{
+    margin-left: 3px;
+}
+div.Extra .Thu{
+    margin-left: 8px;
+}
+div.Extra .Fri{
+    margin-left: 14px;
+    margin-right: 6px;
+}
+div.HeaderExtra{
+    height: 60px;
+    background-color: rgb(60, 60, 60);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+}
+div.HeaderExtra span.SubjectT{
+    position: absolute;
+    left: 5vw;
+}
+div.HeaderExtra span.TimeT{
+    position: absolute;
+}
+div.AddedExtra{
+    height: 60px;
+    background-color: rgb(30, 30, 30);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+div.AddedExtra span.Subject{
+    position: absolute;
+    left: 5vw;
+}
+div.AddedExtra span.Time{
+    position: relative;
+}
+div.AddedExtra button{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5vw;
+}
+div.EmptyExtra{
+    height: 60px;
+    background-color: rgb(45, 45, 45);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+div.EmptyExtra div.Subject{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 5vw;
+    background-color: rgb(66, 66, 66);
+    border-style: solid;
+    border-color: rgb(39, 39, 39);
+    padding-top: 4px;
+}
+div.EmptyExtra div.dropDown div{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(66, 66, 66);
+    padding-top: 4px;
+    position: relative;
+    left: 61px;
+}
+div.EmptyExtra div.dropDown div:hover{
+    cursor: pointer;
+    background-color: rgb(78, 78, 78);
+}
+div.EmptyExtra div.Subject:hover{
+    cursor: pointer;
+    background-color: rgb(78, 78, 78);
+}
+div.EmptyExtra div.dropDown{
+    position: relative;
+    right: 45vw;
+    bottom: 156px;
+    display: none;
+}
+div.EmptyExtra div{
+    color: white;
+}
+div.EmptyExtra div.Time{
+    position: absolute;
+}
+div.EmptyExtra div.Time div span{
+    width: 16px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    user-select: none;
+}
+div.EmptyExtra div.Time div span:hover{
+    cursor: pointer;
+    opacity: 50%;
+}
+div.EmptyExtra div.Time span.AddEndHour{
+    margin-left: 14px;
+}
+div.EmptyExtra div.Time span.AddDay{
+    margin-left: 18px;
+    margin-right: 16px;
+}
+div.EmptyExtra div.Time span.MinusDay{
+    margin-left: 18px;
+    margin-right: 16px;
+}
+div.EmptyExtra div.Time span.MinusEndHour{
+    margin-left: 14px;
+}
+div.EmptyExtra button{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5vw;
+}
+div.reset{
+    text-align: center;
+    margin-bottom: 20px;
+}
+div.reset button{
+    width: 320px;
+    height: 70px;
+    font-size: 18px;
+    color: white;
+    background-image: linear-gradient(rgb(150, 14, 14), rgb(214, 38, 38));
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(112, 0, 0);
+    font-family: inherit;
+    font-weight: 900;
+}
+div.reset button:hover{
+    background-image: linear-gradient(rgb(190, 18, 18), rgb(231, 71, 71));
+    cursor: pointer;
+}
+div.reset button:active{
+    background-image: linear-gradient(rgb(155, 15, 15), rgb(187, 59, 59));
+}
+div.reset button:focus{
+    outline: 0;
+}
+div.footer{
+    background-color: black;
+    color: white;
+    padding-top: 3px;
+    padding-bottom: 1px;
+}
+#list{
+    width: 100%;
+    position: relative;
+    top: 100px;
+}
+#list div.item{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+}
+#list div.even{
+    background-color: rgb(214, 214, 214);
+}
+#list input{
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: inherit;
+    font-family: inherit;
+    text-align: center;
+}
+#list div.item div.button{
+    font-weight: 700;
+    color: black;
+    transition: color 0.2s;
+}
+#list div.item div.button:hover{
+    cursor: pointer;
+    color: rgb(131, 157, 228);
+}
+@media screen and (max-width: 900px){
+    div.TT img{
+        width: 600px;
+    }
+}
+@media screen and (max-width: 800px){
+    div.Info{
+        height: 400px;
+        font-size: 20px;
+    }
+    div.Info strong{
+        font-size: 25px;
+    }
+    div.TopBack{
+        height: 500px;
+    }
+    #list div.item{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 700px){
+    div.AskInfo Button{
+        font-size: 25px;
+    }
+    div.TopBar{
+        font-size: 20px;
+    }
+    div.TopBar div.logo{
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+    div.TopBar div.button{
+        font-size: 15px;
+        margin-right: 20px;
+    }
+    div.Backdrop{
+        background-size: 250%;
+    }
+    div.Info{
+        height: 300px;
+        font-size: 15px;
+    }
+    div.Info strong{
+        font-size: 20px;
+    }
+    div.TopBack{
+        height: 400px;
+    }
+    div.TT img{
+        width: 400px;
+    }
+    div.Button button{
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+    }
+    div.Output{
+        font-size: 13px;
+    }
+    div.Output input{
+        font-size: 30px;
+        width: 200px;
+    }
+    div.reset button{
+        width: 250px;
+        height: 55px;
+        font-size: 14px;
+    }
+    div.footer{
+        font-size: 13px;
+    }
+    div.Center div{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+@media screen and (max-width: 600px){
+    div.AskInfo h3{
+        font-size: 60px;
+        margin-bottom: 4vh;
+    }
+    div.AskInfo Button{
+        font-size: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    div.Button button{
+        width: 150px;
+        height: 55px;
+        font-size: 18px;
+    }
+    div.Output{
+        font-size: 11px;
+    }
+    div.Output input{
+        font-size: 25px;
+        width: 160px;
+    }
+    div.Center div{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 500px){
+    div.AskInfo h3{
+        font-size: 50px;
+    }
+    div.AskInfo Button{
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    div.Backdrop{
+        background-size: 250%;
+    }
+    div.TopBar{
+        font-size: 15px;
+    }
+    div.TopBar div.logo{
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+    div.TopBar div.button{
+        font-size: 10px;
+        margin-right: 10px;
+    }
+    div.Info{
+        font-size: 13px;
+        height: 250px;
+    }
+    div.Info strong{
+        font-size: 15px;
+    }
+    div.TopBack{
+        height: 350px;
+    }
+    div.TT img{
+        width: 320px;
+    }
+    div.Button button{
+        width: 120px;
+        height: 50px;
+        font-size: 16px;
+    }
+    div.Output{
+        font-size: 9px;
+    }
+    div.Output input{
+        font-size: 20px;
+        width: 130px;
+    }
+    div.Center div{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    div.Extra{
+        font-size: 16px;
+    }
+    div.EmptyExtra div.Subject{
+        width: 50px;
+    }
+    div.EmptyExtra div.Time div.upArrows{
+        margin-left: 6px;
+    }
+    div.EmptyExtra div.Time div.downArrows{
+        margin-left: 6px;
+    }
+    div.EmptyExtra div.Time span.AddEndHour{
+        margin-left: 12px;
+    }
+    div.EmptyExtra div.Time span.AddDay{
+        margin-left: 14px;
+        margin-right: 20px;
+    }
+    div.EmptyExtra div.Time span.MinusDay{
+        margin-left: 14px;
+        margin-right: 20px;
+    }
+    div.EmptyExtra div.Time span.MinusEndHour{
+        margin-left: 12px;
+    }
+    div.EmptyExtra div.dropDown div{
+        width: 50px;
+    }
+    div.EmptyExtra div.dropDown div{
+        left: 36px;
+    }
+    div.EmptyExtra div.Time div span{
+        width: 12px;
+    }
+    div.Extra .Tue{
+        margin-left: 9px;
+    }
+    div.Extra .Fri{
+        margin-left: 11px;
+    }
+    div.Button div.Auto div{
+        font-size: 10px;
+    }
+    #list div.item{
+        font-size: 13px;
+    }
+}
