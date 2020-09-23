@@ -21,9 +21,9 @@ var S_3 = ["PE", "Eng", "Math", "A", "B", "Chi", "Bmod"];
 var S_4 = ["Chi", "Eng", "Math", "C", "B", "HRT", "None"];
 var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "Assembly"];
 
-var lessonStart = [9, 10, 11, 12, 13.5, 14.5, 15.5, 16.5, 17.5];
+var lessonStart = [8.25, 9, 10+5/60, 10+55/60, 12+5/60, 12+50/60, 15.5, 16.5, 17.5];
 
-var lunchTime = 3;
+var lunchTime = 5;
 
 var endTime = 8;
 
