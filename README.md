@@ -1,2 +1,2 @@
-# MS4 IB Zoom Meeting Timetable BETA
-- Refactored time management: notification, lesson order may have bugs 
+# MS4 IB Zoom Meeting Timetable
+here we go again

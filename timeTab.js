@@ -3,25 +3,25 @@ var earlyNotify = [6/60, 10/60, 15/60];
 var earlyStart = 30/60;
 var earlyRefresh = 20/60;
 
-var V_1 = ["HRT", "B", "Math", "A", "C", "TOK", "Amod"];
-var V_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
-var V_3 = ["TOK", "Eng", "Math", "A", "B", "Chi", "Bmod"];
-var V_4 = ["FleRe", "Chi", "Eng", "C", "B", "HRT", "Math"];
-var V_5 = ["Math", "PE", "C", "Chi", "A", "Eng", "Assembly"];
+var V_1 = ["A", "C", "B", "Math", "HRT", "TOK", "Amod"];
+var V_2 = ["A", "Chi", "B", "Eng", "C", "Math", "C"];
+var V_3 = ["A", "B", "Eng", "Math", "TOK", "Chi", "Bmod"];
+var V_4 = ["C", "B", "Chi", "Eng", "FleRe", "HRT", "Math"];
+var V_5 = ["Chi", "A", "PE", "C", "Math", "Eng", "Assembly"];
 
-var I_1 = ["HRT", "B", "Math", "A", "C", "Chi", "Amod"];
-var I_2 = ["C", "B", "Eng", "A", "Chi", "Math", "C"];
-var I_3 = ["Chi", "PE", "Math", "A", "B", "Eng", "Bmod"];
-var I_4 = ["FleRe", "TOK", "Eng", "C", "B", "HRT", "Math"];
-var I_5 = ["Math", "Eng", "C", "Chi", "A", "TOK", "Assembly"];
+var I_1 = ["A", "C", "B", "Math", "HRT", "Chi", "Amod"];
+var I_2 = ["A", "Chi", "B", "Eng", "C", "Math", "C"];
+var I_3 = ["A", "B", "PE", "Math", "Chi", "Eng", "Bmod"];
+var I_4 = ["C", "B", "TOK", "Eng", "FleRe", "HRT", "Math"];
+var I_5 = ["Chi", "A", "Eng", "C", "Math", "TOK", "Assembly"];
 
-var S_1 = ["HRT", "B", "Chi", "A", "C", "Eng", "Amod"];
-var S_2 = ["C", "B", "FleRe", "A", "Math", "TOK", "C"];
-var S_3 = ["PE", "Eng", "Math", "A", "B", "Chi", "Bmod"];
-var S_4 = ["Chi", "Eng", "Math", "C", "B", "HRT", "None"];
-var S_5 = ["Chi", "TOK", "C", "Eng", "A", "Math", "Assembly"];
+var S_1 = ["A", "C", "B", "Chi", "HRT", "Eng", "Amod"];
+var S_2 = ["A", "Math", "B", "FleRe", "C", "TOK", "C"];
+var S_3 = ["A", "B", "Eng", "Math", "PE", "Chi", "Bmod"];
+var S_4 = ["C", "B", "Eng", "Math", "Chi", "HRT", "None"];
+var S_5 = ["Eng", "A", "TOK", "C", "Chi", "Math", "Assembly"];
 
-var lessonStart = [8.25, 9, 10+5/60, 10+55/60, 12+5/60, 12+50/60, 15.5, 16.5, 17.5];
+var lessonStart = [8+40/60, 9+25/60, 10+40/60, 11+25/60, 12+15/60, 13+30/60, 15.5, 16.5, 17.5];
 
 var lunchTime = 5;
 
