@@ -29,7 +29,7 @@ var endTime = 8;
 
 function prominLessonTime(tt, x){
     let allLesson = [];
-    for (let i = 0; i < tt.length; i++){
+    for (let i = 0; i < lessonStart.length; i++){
         if (tt[i]=="None" || i==lunchTime || i==endTime) { continue; }
         let oneLesson = [];
         for (let j = 0; j < earlyNotify.length; j++){
