@@ -79,12 +79,12 @@ setUpNotify = function(){
     if (weekday != -1 & weekday != 5){
         let notList1 = ProminLesson(hr, min, weekday, sec);
         let notList2 = ExtraNotif(hr, min, weekday, sec);
-        for (let i = 0; i < notList1[0].length; i++){
+        for (let i = 0; i < notList1[1].length; i++){
             for (let j = 0; j < notList1[1][i].length; j++){
                 Notify(notList1[1][i][j], notList1[0][i]);
             }
         }
-        for (let i = 0; i < notList2[0].length; i++){
+        for (let i = 0; i < notList2[1].length; i++){
             for (let j = 0; j < notList2[1][i].length; j++){
                 Notify(notList2[1][i][j], notList2[0][i]);
             }
