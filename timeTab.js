@@ -33,7 +33,7 @@ function prominLessonTime(tt, x){
         if (tt[i]=="None" || i==lunchTime || i==endTime) { continue; }
         let oneLesson = [];
         for (let j = 0; j < earlyNotify.length; j++){
-            oneLesson.push(lessonStart[i]*3600 - earlyNotify[j]*3600 - x);
+            oneLesson.push(lessonStart[i>lunchTime?i-1:i]*3600 - earlyNotify[j]*3600 - x);
         }
         allLesson.push(oneLesson)
     }
